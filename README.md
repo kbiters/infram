@@ -1,2 +1,3 @@
-![logo-infram](https://user-images.githubusercontent.com/44784488/114485146-d1847d80-9be1-11eb-8027-eb4385e2f385.png)
+![logo-infram](https://user-images.githubusercontent.com/44784488/114485565-86b73580-9be2-11eb-94c2-ded029e75de7.png)
+
 
