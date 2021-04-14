@@ -21,6 +21,8 @@ def main():
 
         sleep(Brave.TIME_TO_REPEAT)
 
+    print(f"Finish after: {time() - initial_time}")
+
 
 if __name__ == "__main__":
     main()

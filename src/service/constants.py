@@ -43,9 +43,9 @@ class Brave:
     STARTUP_ALERT = "Infram will start in 10 sec, press OK or close this alert to start now ..."
     TITLE_ALERT = "Infram - Start Alert"
     PATH = "C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"
-    WIN_MIN = 2
-    WIN_MAX = 3
-    TIME_END = 120
+    WIN_MIN = 5
+    WIN_MAX = 10
+    TIME_END = 600
     TIME_TO_REPEAT = 60
 
 
