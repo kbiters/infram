@@ -2,8 +2,9 @@
 # Run `python3 -m pip install -r requirements.txt`
 # ------------------------------------------------
 
+
 PyAutoGUI==0.9.52
 pyinstaller==4.2
 pynput==1.7.3
-PyUpdater==3.1.1
+PyUpdater[all]
 textblob==0.15.3

@@ -1,3 +1,7 @@
+class Config:
+    LANGUAGE = None
+
+
 class Message:
     WELCOME = """
 +++++++++++++++++++++++++++++++++++++++++++++++++
@@ -19,7 +23,7 @@ class Map:
         4: "Exit",
     }
 
-    LANGUAGE_MAP = {1: "", 2: "es"}
+    LANGUAGE_MAP = {1: None, 2: "es"}
 
 
 class Command:
@@ -36,10 +40,22 @@ class Key:
 
 
 class Brave:
-    STARTUP_ALERT = (
-        "Infram will start in 15 sec, press OK or close this alert to start now ..."
-    )
-    TITLE_ALERT_ = "Infram - Start Alert"
+    STARTUP_ALERT = "Infram will start in 10 sec, press OK or close this alert to start now ..."
+    TITLE_ALERT = "Infram - Start Alert"
     PATH = "C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"
-    WIN_MIN = 5
-    WIN_MAX = 10
+    WIN_MIN = 2
+    WIN_MAX = 3
+    TIME_END = 120
+    TIME_TO_REPEAT = 60
+
+
+class Page:
+    PAGES_LIST = [
+        'www.facebook.com', 'www.youtube.com', 'www.twitter.com', 'www.instagram.com',
+        'www.coinmarketcap.com', 'www.google.com', 'amazon.es', 'wikipedia.org', 'cars',
+        'autos', 'motos', 'aviones', 'guitarras', 'bajos', 'baterias', 'trompetas', 'sol',
+        'Calcetines', 'Zapatos', 'Camiseta', 'Remera', 'Camisa', 'vestido', 'Sombrero',
+        'chamarra', 'Pantalones cortos', 'Chanclas', 'Uniforme', 'traje', 'abrigo', 'sueter',
+        'mallas', 'zapatos', 'corbatas', 'chal', 'guantes', 'gorra', 'bufanda', 'boina', 'buzo',
+        'cordones', 'pantuflas'
+    ]
