@@ -13,5 +13,5 @@ setup(
     name="infram",
     version="0.0.1",
     packages=find_packages(),
-    install_requires=["pyautogui", "pynput", "pyinstaller", "PyUpdater[all]"],
+    install_requires=["textblob", "pyautogui", "pynput", "pyinstaller", "PyUpdater[all]"],
 )
