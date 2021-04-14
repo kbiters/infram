@@ -1,5 +1,5 @@
 from textblob import TextBlob
-from src.service.constants import Msg, Map
+from src.service.constants import Message, Map
 from src.service.mapper import mapping
 
 
@@ -24,7 +24,7 @@ def print_txt(language, msg, check_input):
 
 def select_language():
     try:
-        opt = int(input(Msg.SELECT_LANGUAGE))
+        opt = int(input(Message.SELECT_LANGUAGE))
         selected_lang = mapping(Map.LANGUAGE_MAP, opt)
         return selected_lang
     except OSError as error:
