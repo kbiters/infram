@@ -25,6 +25,8 @@ class Map:
 
     LANGUAGE_MAP = {1: None, 2: "es"}
 
+    ENCRYPTOR_MAP = {0: 'l', 1: 'e', 2: 'g', 3: 'u', 4: 'm', 5: 'i', 6: 'n', 7: 'o', 8: 's', 9: 'a'}
+
 
 class Command:
     EXIT = "Exit"
@@ -37,6 +39,14 @@ class Key:
     W = "w"
     T = "t"
     ENTER = "Enter"
+
+
+class Mouse:
+    USE_MSG = "You want to enable the mouse functionality (increases earnings, " \
+              "but may cause discomfort if you want to use the mouse while the bot is running)"
+
+    USE = False
+    CLICK_NONE = "¡Click done correctly!"
 
 
 class Brave:
@@ -59,3 +69,15 @@ class Page:
         'mallas', 'zapatos', 'corbatas', 'chal', 'guantes', 'gorra', 'bufanda', 'boina', 'buzo',
         'cordones', 'pantuflas'
     ]
+
+
+class Credentials:
+    INFO = '\nIf you dont have the code to authorize INFRAM, you can get it here: ' \
+           'https://discord.gg/z7AmYMMB, in the "AUTHORIZATION" section.'
+
+    ERROR = 'Incorrect credentials, enter: https://discord.gg/z7AmYMMB in the ' \
+            '"AUTHORIZATION" section you can get the code to run INFRAM.'
+
+    OK = "Authorization code VALIDATED!\n"
+    SET_FIRST = "Enter the code that is in the DISCORD group: "
+    SET_SECOND = "Enter the second code that is in the DISCORD group: "

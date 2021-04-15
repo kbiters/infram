@@ -2,6 +2,7 @@ import subprocess
 from random import randint
 from time import sleep
 
+from src.operations.mouse import move_click_mouse
 from src.operations.functions import key
 from src.operations.functions import start_alert
 from src.operations.page import select_page
@@ -11,6 +12,7 @@ from src.service.translator import translate
 win_to_open = randint(Brave.WIN_MIN, Brave.WIN_MAX)
 win_to_close = win_to_open + 1
 
+wait_finish_opening = randint(3, 7)
 wait_to_start = randint(2, 4)
 wait_to_type = randint(1, 3)
 wait_to_close = randint(1, 2)
@@ -24,6 +26,7 @@ def start_brave():
     try:
         start_alert()
         subprocess.Popen([Brave.PATH, '-new-tab'])
+        sleep(wait_finish_opening)
         open_windows()
     except OSError as error:
         print(translate(error))
@@ -39,6 +42,7 @@ def open_windows():
         i = 1
         while i <= win_to_open:
             sleep(wait_to_start)
+            move_click_mouse()
             key(Key.CTRL, Key.T)
             sleep(wait_to_type)
             select_page()
@@ -58,6 +62,7 @@ def close_windows():
         i = 1
         while i <= win_to_close:
             sleep(wait_to_close)
+            move_click_mouse()
             key(Key.CTRL, Key.W)
             i += 1
     except OSError as error:
