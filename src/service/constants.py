@@ -61,13 +61,17 @@ class Brave:
 
 class Page:
     PAGES_LIST = [
-        'www.facebook.com', 'www.youtube.com', 'www.twitter.com', 'www.instagram.com',
-        'www.coinmarketcap.com', 'www.google.com', 'amazon.es', 'wikipedia.org', 'cars',
-        'autos', 'motos', 'aviones', 'guitarras', 'bajos', 'baterias', 'trompetas', 'sol',
-        'Calcetines', 'Zapatos', 'Camiseta', 'Remera', 'Camisa', 'vestido', 'Sombrero',
-        'chamarra', 'Pantalones cortos', 'Chanclas', 'Uniforme', 'traje', 'abrigo', 'sueter',
-        'mallas', 'zapatos', 'corbatas', 'chal', 'guantes', 'gorra', 'bufanda', 'boina', 'buzo',
-        'cordones', 'pantuflas'
+        "https://www.instagram.com", "https://www.amazon.es", "https://archive.org/",
+        "https://es.simplesite.com/pages/pagelist.aspx", "https://duckduckgo.com/",
+        "https://www.jamendo.com/", "https://soundcloud.com/", "https://www.libro-s.com/",
+        "https://dissolve.com/community", "https://www.infoempleo.com/",
+        "https://soprasteria.ofertas-trabajo.infojobs.net/", "https://www.coursera.org/",
+        "https://www.futurelearn.com/", "https://www.idealo.es/", "https://livestream.com/",
+        "https://wiseplay.es/descargar/", "https://www.c-date.es/", "https://tinder.com/?lang=es-ES",
+        "https://3somerapp.com/", "https://badoo.com/es/", "https://bumble.com/es/",
+        "https://www.eharmony.com/", "https://www.gentechat.net/", "https://www.grindr.com/",
+        "https://www.haterdater.com/", "https://www.jaumo.com/es/", "https://es.lovoo.com/",
+        "https://www.meetic.es/", "https://es.www.meetme.com/#home", "https://www.liruch.com/"
     ]
 
 
