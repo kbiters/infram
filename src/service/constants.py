@@ -55,7 +55,7 @@ class Brave:
     PATH = "C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"
     WIN_MIN = 5
     WIN_MAX = 10
-    TIME_END = 600
+    TIME_END = 1500
     TIME_TO_REPEAT = 60
 
 
@@ -73,9 +73,9 @@ class Page:
 
 class Credentials:
     INFO = '\nIf you dont have the code to authorize INFRAM, you can get it here: ' \
-           'https://discord.gg/z7AmYMMB, in the "AUTHORIZATION" section.'
+           'https://discord.gg/JgzeAwKYNA, in the "AUTHORIZATION" section.'
 
-    ERROR = 'Incorrect credentials, enter: https://discord.gg/z7AmYMMB in the ' \
+    ERROR = 'Incorrect credentials, enter: https://discord.gg/JgzeAwKYNA in the ' \
             '"AUTHORIZATION" section you can get the code to run INFRAM.'
 
     OK = "Authorization code VALIDATED!\n"
