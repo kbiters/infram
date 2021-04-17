@@ -58,5 +58,8 @@ def check_stop(initial_time):
     the time that it had been predetermined to work in case the 'final - initial'
     time is equal to or greater than the set time to stop, 'True' returns.
     """
-    if time() - initial_time >= Brave.TIME_END:
-        return True
+    try:
+        if time() - initial_time >= Brave.TIME_END:
+            return True
+    except OSError as error:
+        print(error)

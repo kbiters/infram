@@ -13,9 +13,12 @@ def move_click_mouse():
     the functions of moving the mouse to the desired position and clicking.
     :return:
     """
-    if Mouse.USE:
-        get_size_screen()
-        pyautogui.click()
+    try:
+        if Mouse.USE:
+            get_size_screen()
+            pyautogui.click()
+    except OSError as error:
+        print(error)
 
 
 def get_size_screen():

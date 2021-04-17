@@ -1,12 +1,13 @@
+import json
 from math import sqrt
 
 from src.service.constants import Credentials, Map
 from src.service.translator import translate
 
 # Variables que nunca deben ser revelados.
-VAR_Y = 454693252.55989
-EXPONENT_1 = 4
-EXPONENT_2 = 3
+VAR_Y = "mimnaugig.iiasa"
+EXPONENT_1 = "m"
+EXPONENT_2 = "u"
 
 
 def check_session():
@@ -19,14 +20,46 @@ def check_session():
     of the BOT.
     :return:
     """
-    print(translate(Credentials.INFO))
-    decrypted_first_hash = decrypt(set_user_first_hash(), Map.ENCRYPTOR_MAP)
-    decrypted_second_hash = decrypt(set_user_second_hash(), Map.ENCRYPTOR_MAP)
-    if decrypted_first_hash == math_operation(decrypted_second_hash):
-        print(translate(Credentials.OK))
-        return True
-    else:
-        return False
+    try:
+        first_hash, second_hash = get_credentials()
+        decryp_hash1 = decryptor(first_hash, Map.ENCRYPTOR_MAP)
+        decryp_hash2 = decryptor(second_hash, Map.ENCRYPTOR_MAP)
+        if decryp_hash1 == math_operation(decryp_hash2):
+            print(translate(Credentials.OK))
+            return True
+        else:
+            print(translate(Credentials.INFO))
+
+            first_hash, second_hash = set_user_first_hash(), set_user_second_hash()
+            decryp_hash1 = decryptor(list(first_hash.lower()), Map.ENCRYPTOR_MAP)
+            decryp_hash2 = decryptor(list(second_hash.lower()), Map.ENCRYPTOR_MAP)
+
+            if decryp_hash1 == math_operation(decryp_hash2):
+                save_credentials(first_hash, second_hash)
+                print(translate(Credentials.OK))
+                return True
+            else:
+                return False
+    except OSError as error:
+        print(error)
+
+
+def decrypt_vars_private():
+    """
+    Function defined to decrypt the 3 variables that are not given to the user,
+    once we have the second variable entered by the user and the 3 private variables
+    decrypted, then we proceed to return the numerical values of each decrypted variable.
+    :return:
+    """
+    try:
+        VAR_Y_decrypt = decryptor(list(VAR_Y.lower()), Map.ENCRYPTOR_MAP)
+        EXPONENT_1_decrypt = decryptor(list(EXPONENT_1.lower()), Map.ENCRYPTOR_MAP)
+        EXPONENT_2_decrypt = decryptor(list(EXPONENT_2.lower()), Map.ENCRYPTOR_MAP)
+
+        assert VAR_Y_decrypt and EXPONENT_1_decrypt and EXPONENT_2_decrypt is not None
+        return VAR_Y_decrypt, EXPONENT_1_decrypt, EXPONENT_2_decrypt
+    except OSError as error:
+        print(error)
 
 
 def math_operation(decrypted_second_hash):
@@ -38,12 +71,16 @@ def math_operation(decrypted_second_hash):
     :param decrypted_second_hash:
     :return:
     """
-    VAR_X = float(decrypted_second_hash)
-    d = sqrt(VAR_X ** EXPONENT_1 + VAR_Y ** EXPONENT_2)
-    return str(round(d, ))
+    try:
+        b, c, d = decrypt_vars_private()
+        a = float(decrypted_second_hash)
+        e = sqrt(a ** int(c) + float(b) ** int(d))
+        return str(round(e, ))
+    except OSError as error:
+        print(error)
 
 
-def decrypt(x, d):
+def decryptor(x, d):
     """
     Function used to decrypt, the first parameter is the encrypted message and the second
     parameter is the dictionary with which we will decrypt the message, first we go through
@@ -54,11 +91,14 @@ def decrypt(x, d):
     :param d:
     :return:
     """
-    for i in range(len(x)):
-        for j in range(10):
-            if x[i] == d.get(j):
-                x[i] = str(j)
-    return ''.join(x)
+    try:
+        for i in range(len(x)):
+            for j in range(10):
+                if x[i] == d.get(j):
+                    x[i] = str(j)
+        return ''.join(x)
+    except OSError as error:
+        print(error)
 
 
 def set_user_first_hash():
@@ -66,7 +106,10 @@ def set_user_first_hash():
     The user enters the first encrypted hash.
     :return:
     """
-    return list(input(translate(Credentials.SET_FIRST)).lower())
+    try:
+        return input(translate(Credentials.SET_FIRST))
+    except OSError as error:
+        print(error)
 
 
 def set_user_second_hash():
@@ -74,10 +117,42 @@ def set_user_second_hash():
     The user enters the second encrypted hash.
     :return:
     """
-    return list(input(translate(Credentials.SET_SECOND)).lower())
+    try:
+        return input(translate(Credentials.SET_SECOND))
+    except OSError as error:
+        print(error)
 
+
+def get_credentials():
+    with open('json/credentials.json') as file:
+        dat = json.load(file)
+        for credentials in dat["credentials"]:
+            first_hash = credentials['cred1']
+            second_hash = credentials['cred2']
+        return list(first_hash.lower()), list(second_hash.lower())
+
+
+def save_credentials(credential1, credential2):
+    data = {'credentials': []}
+    data["credentials"].append({
+        'cred1': credential1,
+        'cred2': credential2,
+    })
+
+    with open('json/credentials.json', 'w') as f:
+        json.dump(data, f)
 
 # SESSION_KEY_ENCRIPTADA = mseassunioeasomi
-# SESSION_KEY_NO_ENCRIPTADA = 4819883657198745 <--- la funcion math_operation() devuelve exactamente ese numero
+# SESSION_KEY = 4819883657198745 <--- la funcion math_operation() devuelve exactamente ese numero
+
 # VAX_X_ENCRIPTADA = namgiuee.olmo
 # VAR_X = 69425311.7047
+
+# VAX_Y_ENCRIPTADA = mimnaugig.iiasa
+# VAR_Y = 454693252.55989
+
+# EXPONENT_1 = m
+# EXPONENT_1 = 4
+
+# EXPONENT_2 = u
+# EXPONENT_2 = 3
