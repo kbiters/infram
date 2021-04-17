@@ -2,6 +2,10 @@ class Config:
     LANGUAGE = None
 
 
+class Json:
+    JSON_PATH = "json/"
+
+
 class Message:
     WELCOME = """
 +++++++++++++++++++++++++++++++++++++++++++++++++

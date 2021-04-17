@@ -1,6 +1,6 @@
-import json
 from math import sqrt
 
+from src.json.credentials import save_credentials, get_credentials
 from src.service.constants import Credentials, Map
 from src.service.translator import translate
 
@@ -12,12 +12,17 @@ EXPONENT_2 = "u"
 
 def check_session():
     """
-    First we show the information and place, where they can get the credential, then
-    to the 2 variables, we put the KEYs that the user entered by keyboard and finally
-    we close with an "if" which makes the comparison of the result that gave us the
-    function "math_operation()" with the first hash that the user entered, if it matches,
-    then it returns "True" and gives access to the user so he can execute the functions
-    of the BOT.
+    In case the user has already entered the 2 credentials and they are correct,
+    we load them and give access.
+
+    If not:
+
+    First we show the information and the place, where they can obtain the credential,
+    then to the 2 variables, we put the KEYS that the user entered by keyboard and
+    finally we close with an "if". We close with an "if" that makes the comparison
+    of the result that the function "math_operation()" gave us. function "math_operation()"
+    with the first hash entered by the user, if it matches, then it returns "True" and gives
+    access to the user to execute the BOT functions.
     :return:
     """
     try:
@@ -121,26 +126,6 @@ def set_user_second_hash():
         return input(translate(Credentials.SET_SECOND))
     except OSError as error:
         print(error)
-
-
-def get_credentials():
-    with open('json/credentials.json') as file:
-        dat = json.load(file)
-        for credentials in dat["credentials"]:
-            first_hash = credentials['cred1']
-            second_hash = credentials['cred2']
-        return list(first_hash.lower()), list(second_hash.lower())
-
-
-def save_credentials(credential1, credential2):
-    data = {'credentials': []}
-    data["credentials"].append({
-        'cred1': credential1,
-        'cred2': credential2,
-    })
-
-    with open('json/credentials.json', 'w') as f:
-        json.dump(data, f)
 
 # SESSION_KEY_ENCRIPTADA = mseassunioeasomi
 # SESSION_KEY = 4819883657198745 <--- la funcion math_operation() devuelve exactamente ese numero
