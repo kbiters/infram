@@ -3,8 +3,8 @@ import pyautogui
 from src.service.constants import Mouse, Message
 from src.service.translator import translate
 
-perc_width = 0.93
-perc_high = 0.93
+perc_width = 0.85431918
+perc_high = 0.88932292
 
 
 def move_click_mouse():
