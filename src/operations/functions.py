@@ -3,7 +3,7 @@ from time import time
 
 import pyautogui
 
-from src.service.constants import Brave
+from src.service.constants import Brave, Database
 from src.service.translator import translate
 
 
@@ -59,7 +59,7 @@ def check_stop(initial_time):
     time is equal to or greater than the set time to stop, 'True' returns.
     """
     try:
-        if time() - initial_time >= Brave.TIME_END:
+        if time() - initial_time >= Database.TIME_END:
             return True
     except OSError as error:
         print(error)

@@ -1,9 +1,36 @@
+class Database:
+    DB_FILE = "DataBase.db"
+    JSON_FILE = "credentials.json"
+    DATA_PATH = "data/"
+
+    LIST_TABLES = {
+        "defaultConfigs",
+        "editableConfigs"
+    }
+
+    DICT_MAKE_TABLES = {
+        "create table defaultConfigs (id integer primary key autoincrement, "
+        "WIN_MIN int, WIN_MAX int, TIME_END int, TIME_TO_REPEAT int, POWER_OFF boolean)",
+        "create table editableConfigs (id integer primary key autoincrement, "
+        "WIN_MIN int, WIN_MAX int, TIME_END int, TIME_TO_REPEAT int, POWER_OFF boolean)"
+    }
+
+    WIN_MIN = 5
+    WIN_MAX = 10
+    TIME_END = 1500
+    TIME_TO_REPEAT = 60
+    POWER_OFF = False
+
+
+class Image:
+    NOTIFICATION_PATH = ("data/images/notification.png",
+                         "data/images/notification2.png")
+
+    NEW_TAB_PATH = ("data/images/more.png",)
+
+
 class Config:
     LANGUAGE = None
-
-
-class Json:
-    JSON_PATH = "json/"
 
 
 class Message:
@@ -17,9 +44,17 @@ class Message:
     SYNTAX_ERROR = "Number not allowed, enter an option again ..."
     SELECT_LANGUAGE = "Select language [1- ingles | 2- español]: "
     CHECK_YES_NO = " [y/n]: "
+    FINISH = "Finish after: "
 
 
 class Map:
+    MAKE_TABLES = {
+        "defaultConfigs": "insert into defaultConfigs(WIN_MIN, WIN_MAX, TIME_END, "
+                          "TIME_TO_REPEAT, POWER_OFF) values (?,?,?,?,?)",
+        "editableConfigs": "insert into editableConfigs(WIN_MIN, WIN_MAX, TIME_END, "
+                           "TIME_TO_REPEAT, POWER_OFF) values (?,?,?,?,?)"
+    }
+
     MENU_MAP = {
         1: "USE modifiable settings",
         2: "USE default settings",
@@ -57,10 +92,6 @@ class Brave:
     STARTUP_ALERT = "Infram will start in 10 sec, press OK or close this alert to start now ..."
     TITLE_ALERT = "Infram - Start Alert"
     PATH = "C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"
-    WIN_MIN = 5
-    WIN_MAX = 10
-    TIME_END = 1500
-    TIME_TO_REPEAT = 60
 
 
 class Page:
