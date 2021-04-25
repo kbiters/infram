@@ -2,14 +2,14 @@ import subprocess
 from random import randint
 from time import sleep
 
-from src.operations.mouse import move_click_mouse
 from src.operations.functions import key
 from src.operations.functions import start_alert
+from src.operations.mouse import find_image_click
 from src.operations.page import select_page
-from src.service.constants import Brave, Key
+from src.service.constants import Brave, Key, Database, Image
 from src.service.translator import translate
 
-win_to_open = randint(Brave.WIN_MIN, Brave.WIN_MAX)
+win_to_open = randint(Database.WIN_MIN, Database.WIN_MAX)
 win_to_close = win_to_open + 1
 
 wait_finish_opening = randint(3, 7)
@@ -42,8 +42,10 @@ def open_windows():
         i = 1
         while i <= win_to_open:
             sleep(wait_to_start)
-            move_click_mouse()
-            key(Key.CTRL, Key.T)
+            if not find_image_click(Image.NOTIFICATION_PATH):
+                key(Key.CTRL, Key.T)
+            else:
+                find_image_click(Image.NEW_TAB_PATH)
             sleep(wait_to_type)
             select_page()
             i += 1
@@ -62,7 +64,6 @@ def close_windows():
         i = 1
         while i <= win_to_close:
             sleep(wait_to_close)
-            move_click_mouse()
             key(Key.CTRL, Key.W)
             i += 1
     except OSError as error:

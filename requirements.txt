@@ -3,8 +3,9 @@
 # ------------------------------------------------
 
 
-PyAutoGUI==0.9.52
-pyinstaller==4.2
-pynput==1.7.3
+PyAutoGUI
+pyinstaller
+pynput
 PyUpdater[all]
-textblob==0.15.3
+textblob
+opencv-python
