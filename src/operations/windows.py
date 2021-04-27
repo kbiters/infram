@@ -1,15 +1,16 @@
+import json
 import subprocess
-from random import randint
+from random import randint, uniform
 from time import sleep
 
 from src.operations.functions import key
 from src.operations.functions import start_alert
 from src.operations.mouse import find_image_click
 from src.operations.page import select_page
-from src.service.constants import Brave, Key, Database, Image
+from src.service.constants import Brave, Key, Database, Image, Vars
 from src.service.translator import translate
 
-win_to_open = randint(Database.WIN_MIN, Database.WIN_MAX)
+win_to_open = randint(Vars.WIN_MIN, Vars.WIN_MAX)
 win_to_close = win_to_open + 1
 
 wait_finish_opening = randint(3, 7)
@@ -25,7 +26,8 @@ def start_brave():
     """
     try:
         start_alert()
-        subprocess.Popen([Brave.PATH, '-new-tab'])
+        subprocess.Popen(Brave.OPEN_LINK, shell=True)
+        # subprocess.Popen([Brave.PATH, '-new-tab'])
         sleep(wait_finish_opening)
         open_windows()
     except OSError as error:
@@ -45,7 +47,10 @@ def open_windows():
             if not find_image_click(Image.NOTIFICATION_PATH):
                 key(Key.CTRL, Key.T)
             else:
+                sleep(uniform(0.4, 0.9))
                 find_image_click(Image.NEW_TAB_PATH)
+                Vars.TEST += 1
+                save_test(Vars.TEST)
             sleep(wait_to_type)
             select_page()
             i += 1
@@ -68,3 +73,16 @@ def close_windows():
             i += 1
     except OSError as error:
         print(translate(error))
+
+
+def save_test(arg1):
+    try:
+        data = {'Clicks': []}
+        data["Clicks"].append({
+            'Cantidad': arg1,
+        })
+
+        with open(Database.DATA_PATH + Database.JSON_TEST, 'w') as f:
+            json.dump(data, f)
+    except OSError as error:
+        print(error)

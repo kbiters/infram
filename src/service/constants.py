@@ -1,6 +1,21 @@
+class Config:
+    LANGUAGE = None
+
+
+class Vars:
+    WIN_MIN = 0
+    WIN_MAX = 0
+    TIME_END = 0
+    TIME_TO_REPEAT = 0
+    POWER_OFF = False
+
+    TEST = 0
+
+
 class Database:
     DB_FILE = "DataBase.db"
     JSON_FILE = "credentials.json"
+    JSON_TEST = "test.json"
     DATA_PATH = "data/"
 
     LIST_TABLES = {
@@ -15,22 +30,13 @@ class Database:
         "WIN_MIN int, WIN_MAX int, TIME_END int, TIME_TO_REPEAT int, POWER_OFF boolean)"
     }
 
-    WIN_MIN = 5
-    WIN_MAX = 10
-    TIME_END = 1500
-    TIME_TO_REPEAT = 60
-    POWER_OFF = False
-
 
 class Image:
     NOTIFICATION_PATH = ("data/images/notification.png",
-                         "data/images/notification2.png")
+                         "data/images/notification2.png"
+                         )
 
     NEW_TAB_PATH = ("data/images/more.png",)
-
-
-class Config:
-    LANGUAGE = None
 
 
 class Message:
@@ -45,6 +51,7 @@ class Message:
     SELECT_LANGUAGE = "Select language [1- ingles | 2- español]: "
     CHECK_YES_NO = " [y/n]: "
     FINISH = "Finish after: "
+    GET_TYPE_DB_USE = "Enter the configuration you want to use 1. DEFAULT | 2. EDITABLE: "
 
 
 class Map:
@@ -62,13 +69,18 @@ class Map:
         4: "Exit",
     }
 
+    TYPE_DB_MAP = {
+        1: "defaultConfigs",
+        2: "editableConfigs"
+    }
+
     LANGUAGE_MAP = {1: None, 2: "es"}
 
     ENCRYPTOR_MAP = {0: 'l', 1: 'e', 2: 'g', 3: 'u', 4: 'm', 5: 'i', 6: 'n', 7: 'o', 8: 's', 9: 'a'}
 
 
 class Command:
-    EXIT = "Exit"
+    EXIT = "exit"
     CLEAR = "cls"
     POWER_OFF = "shutdown.exe -s"
 
@@ -85,28 +97,59 @@ class Mouse:
               "but may cause discomfort if you want to use the mouse while the bot is running)"
 
     USE = False
-    CLICK_NONE = "¡Click done correctly!"
 
 
 class Brave:
     STARTUP_ALERT = "Infram will start in 10 sec, press OK or close this alert to start now ..."
     TITLE_ALERT = "Infram - Start Alert"
-    PATH = "C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"
+    # PATH = "C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"
+    OPEN_LINK = "cmd /c start brave https://github.com/gianca1994 --new-window"
 
 
 class Page:
     PAGES_LIST = [
-        "https://www.instagram.com", "https://www.amazon.es", "https://archive.org/",
-        "https://es.simplesite.com/pages/pagelist.aspx", "https://duckduckgo.com/",
-        "https://www.jamendo.com/", "https://soundcloud.com/", "https://www.libro-s.com/",
-        "https://dissolve.com/community", "https://www.infoempleo.com/",
-        "https://soprasteria.ofertas-trabajo.infojobs.net/", "https://www.coursera.org/",
-        "https://www.futurelearn.com/", "https://www.idealo.es/", "https://livestream.com/",
-        "https://wiseplay.es/descargar/", "https://www.c-date.es/", "https://tinder.com/?lang=es-ES",
-        "https://3somerapp.com/", "https://badoo.com/es/", "https://bumble.com/es/",
-        "https://www.eharmony.com/", "https://www.gentechat.net/", "https://www.grindr.com/",
-        "https://www.haterdater.com/", "https://www.jaumo.com/es/", "https://es.lovoo.com/",
-        "https://www.meetic.es/", "https://es.www.meetme.com/#home", "https://www.liruch.com/"
+        "jabon", "cepillo", "tenedor", "cuchillo", "peine", "paragua", "almohada", "botiquin",
+        "cama", "clip", "flor", "shampoo", "pila", "bateria", "pasta", "billete", "moneda",
+        "capsula", "cafe", "te", "chicle", "botella", "cuchara", "aceite", "agua", "fuego",
+        "tierra", "aire", "ozono", "rayo", "tierra", "sol", "luna", "marte", "planeta",
+        "mercurio", "jupiter", "saturno", "urano", "neptuno", "pluton", "galaxia", "via lactea",
+        "sistema solar", "estrella", "satelite", "lunes", "martes", "miercoles", "jueves",
+        "viernes", "sabado", "domingo", "luz", "film", "tazas", "jarra", "vaso", "vela",
+        "petroleo", "gas", "nafta", "gas oil", "corriente", "electricidad", "intensidad",
+        "fuerza", "modulo", "ampere", "voltaje", "tension", "campo electrico", "campo magnetico",
+        "magnetismo", "hidrogeno", "helio", "litio", "berilio", "boro", "carbono", "nitrogeno",
+        "oxigeno", "fluor", "neon", "sodio", "magnesio", "aluminio", "silicio", "fosforo",
+        "azufre", "cloro", "argon", "potasio", "calcio", "escandio", "titanio", "vanadio",
+        "cromo", "manganeso", "hierro", "cobalto", "niquel", "cobre", "zinc", "galio", "germanio",
+        "arsenico", "selenio", "bromo", "kripton", "rubidio", "estroncio", "itrio", "circonio",
+        "niobio", "molibdeno", "tecnecio", "rutenio", "rodio", "paladio", "plata", "cadmio",
+        "indio", "estaño", "antimonio", "telurico", "yodo", "xenon", "cesio", "bario", "hafnio",
+        "tantalo", "wolframio", "renio", "osmio", "iridio", "platino", "oro", "mercurio", "talio",
+        "plomo", "bismuto", "polonio", "astato", "radon", "francio", "radio", "rutherfordio",
+        "dubnio", "seaborgio", "bohrio", "hasio", "meitnerio", "darmastatio", "roentgenio",
+        "copernicio", "nihonio", "flerovio", "moscovio", "livermorio", "teneso", "oganeson",
+        "latano", "cerio", "praseodimio", "neodimio", "prometio", "samarino", "europio",
+        "gadolinio", "terbio", "disprosio", "holmio", "erbio", "tulio", "iterbio", "lutecio",
+        "actinio", "torio", "proactinio", "uranio", "neptunio", "plutonio", "americio", "curio",
+        "berkelio", "californio", "einstenio", "fermio", "mendelevio", "nobelio", "lawrencio",
+        "cable", "aislante", "conductor", "zapatilla", "zapatos", "borcegos", "botas", "panchas",
+        "mocasines", "sandalias", "ojotas", "zuecos", "campera", "remera", "buzo", "sweater",
+        "cardigan", "jean", "chomba", "camisa", "pantalon", "jogging", "bermuda", "short", "bluza",
+        "camiseta", "pelota", "canasta", "silbato", "bicicleta", "meta", "raqueta", "red", "banca",
+        "paragua", "porteria", "cancha", "tablero", "estadio", "vestuario", "arbitro", "jugador",
+        "uva", "lima", "limon", "cereza", "arandano", "banana", "manzana", "sandia", "melocoton",
+        "piña", "fresa", "naranja", "coco", "pera", "albaricoque", "aguacate", "zarzamora", "pomelo",
+        "kiwi", "mango", "ciruela", "frambuesa", "granada", "higo", "maracuya", "mandarina", "zandia",
+        "mochila", "libro", "librero", "recreo", "cafeteria", "calculadora", "calendario", "tiza",
+        "pizzarron", "clase", "aula", "crayon", "escritorio", "diploma", "examen", "pegamento",
+        "calificacion", "gimnasio", "perforadora", "tarea", "laboratorio", "biblioteca", "mapa",
+        "boligrafo", "lapiz", "lapicera", "sacapuntas", "cartel", "director", "profesor", "prueba",
+        "regla", "beca", "tijeras", "semestre", "engrapadora", "contabilidad", "arqueologia",
+        "arquitectura", "arte", "astronomia", "biologia", "quimica", "economia", "ingenieria",
+        "geografia", "geologia", "historia", "literatura", "matematica", "lengua", "musica",
+        "filosofia", "fisica", "psicologia", "sociologia", "teologia", "ingles", "chino", "español",
+        "frances", "arabe", "ruso", "bengali", "portugues", "indonesio", "aleman", "japones", "turco",
+        "italiano"
     ]
 
 
