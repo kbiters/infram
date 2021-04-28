@@ -1,6 +1,16 @@
 import json
 
-from src.service.constants import Database
+from src.service.constants import Data
+
+
+def make_credentials_default():
+    with open(Data.DATA_PATH + Data.CREDENTIALS, 'w') as f:
+        data = {'credentials': []}
+        data["credentials"].append({
+            'cred1': "None",
+            'cred2': "None",
+        })
+        json.dump(data, f, indent=4)
 
 
 def get_credentials():
@@ -10,7 +20,7 @@ def get_credentials():
     :return:
     """
     try:
-        with open(Database.DATA_PATH + Database.JSON_FILE) as file:
+        with open(Data.DATA_PATH + Data.CREDENTIALS) as file:
             dat = json.load(file)
             for credentials in dat["credentials"]:
                 first_hash = credentials['cred1']
@@ -36,7 +46,7 @@ def save_credentials(credential1, credential2):
             'cred2': credential2,
         })
 
-        with open(Database.DATA_PATH + Database.JSON_FILE, 'w') as f:
+        with open(Data.DATA_PATH + Data.CREDENTIALS, 'w') as f:
             json.dump(data, f)
     except OSError as error:
         print(error)

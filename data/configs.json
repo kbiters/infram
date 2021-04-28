@@ -1,0 +1,20 @@
+{
+  "DEFAULT": [
+    {
+      "WIN_MIN": 5,
+      "WIN_MAX": 7,
+      "TIME_END": 3600,
+      "TIME_TO_REPEAT": 30,
+      "POWER_OFF": 0
+    }
+  ],
+  "EDITABLE": [
+    {
+      "WIN_MIN": 10,
+      "WIN_MAX": 15,
+      "TIME_END": 7200,
+      "TIME_TO_REPEAT": 500,
+      "POWER_OFF": 0
+    }
+  ]
+}

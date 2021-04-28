@@ -7,7 +7,7 @@ from src.operations.functions import key
 from src.operations.functions import start_alert
 from src.operations.mouse import find_image_click
 from src.operations.page import select_page
-from src.service.constants import Brave, Key, Database, Image, Vars
+from src.service.constants import Brave, Key, Data, Image, Vars
 from src.service.translator import translate
 
 win_to_open = randint(Vars.WIN_MIN, Vars.WIN_MAX)
@@ -44,13 +44,11 @@ def open_windows():
         i = 1
         while i <= win_to_open:
             sleep(wait_to_start)
-            if not find_image_click(Image.NOTIFICATION_PATH):
+            if not find_image_click(Image.NOTIFICATION_PATH, -100, 100, -8, 8):
                 key(Key.CTRL, Key.T)
             else:
                 sleep(uniform(0.4, 0.9))
                 find_image_click(Image.NEW_TAB_PATH)
-                Vars.TEST += 1
-                save_test(Vars.TEST)
             sleep(wait_to_type)
             select_page()
             i += 1
@@ -74,15 +72,3 @@ def close_windows():
     except OSError as error:
         print(translate(error))
 
-
-def save_test(arg1):
-    try:
-        data = {'Clicks': []}
-        data["Clicks"].append({
-            'Cantidad': arg1,
-        })
-
-        with open(Database.DATA_PATH + Database.JSON_TEST, 'w') as f:
-            json.dump(data, f)
-    except OSError as error:
-        print(error)

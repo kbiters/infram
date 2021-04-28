@@ -3,38 +3,25 @@ class Config:
 
 
 class Vars:
-    WIN_MIN = 0
-    WIN_MAX = 0
-    TIME_END = 0
-    TIME_TO_REPEAT = 0
-    POWER_OFF = False
-
-    TEST = 0
+    WIN_MIN = 5
+    WIN_MAX = 7
+    TIME_END = 3600
+    TIME_TO_REPEAT = 30
+    POWER_OFF = 0
 
 
-class Database:
-    DB_FILE = "DataBase.db"
-    JSON_FILE = "credentials.json"
+class Data:
+    CONFIGS = "configs.json"
+    CREDENTIALS = "credentials.json"
     JSON_TEST = "test.json"
     DATA_PATH = "data/"
-
-    LIST_TABLES = {
-        "defaultConfigs",
-        "editableConfigs"
-    }
-
-    DICT_MAKE_TABLES = {
-        "create table defaultConfigs (id integer primary key autoincrement, "
-        "WIN_MIN int, WIN_MAX int, TIME_END int, TIME_TO_REPEAT int, POWER_OFF boolean)",
-        "create table editableConfigs (id integer primary key autoincrement, "
-        "WIN_MIN int, WIN_MAX int, TIME_END int, TIME_TO_REPEAT int, POWER_OFF boolean)"
-    }
 
 
 class Image:
     NOTIFICATION_PATH = ("data/images/notification.png",
-                         "data/images/notification2.png"
-                         )
+                         "data/images/notification2.png",
+                         "data/images/notification3.png",
+                         "data/images/notification4.png")
 
     NEW_TAB_PATH = ("data/images/more.png",)
 
@@ -55,13 +42,6 @@ class Message:
 
 
 class Map:
-    MAKE_TABLES = {
-        "defaultConfigs": "insert into defaultConfigs(WIN_MIN, WIN_MAX, TIME_END, "
-                          "TIME_TO_REPEAT, POWER_OFF) values (?,?,?,?,?)",
-        "editableConfigs": "insert into editableConfigs(WIN_MIN, WIN_MAX, TIME_END, "
-                           "TIME_TO_REPEAT, POWER_OFF) values (?,?,?,?,?)"
-    }
-
     MENU_MAP = {
         1: "USE modifiable settings",
         2: "USE default settings",
