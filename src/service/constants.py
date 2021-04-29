@@ -3,10 +3,10 @@ class Config:
 
 
 class Vars:
-    WIN_MIN = 5
-    WIN_MAX = 7
-    TIME_END = 3600
-    TIME_TO_REPEAT = 30
+    WIN_MIN = 0
+    WIN_MAX = 0
+    TIME_END = 0
+    TIME_TO_REPEAT = 0
     POWER_OFF = 0
 
 
@@ -18,10 +18,7 @@ class Data:
 
 
 class Image:
-    NOTIFICATION_PATH = ("data/images/notification.png",
-                         "data/images/notification2.png",
-                         "data/images/notification3.png",
-                         "data/images/notification4.png")
+    NOTIFICATION_PATH = ("data/images/notification.png",)
 
     NEW_TAB_PATH = ("data/images/more.png",)
 
@@ -39,23 +36,22 @@ class Message:
     CHECK_YES_NO = " [y/n]: "
     FINISH = "Finish after: "
     GET_TYPE_DB_USE = "Enter the configuration you want to use 1. DEFAULT | 2. EDITABLE: "
-
+    GET_TYPE_VARS_USE = "Ingrese las variables que desea utilizar 1. DEFAULT | 2. EDITABLES: "
 
 class Map:
     MENU_MAP = {
         1: "USE modifiable settings",
         2: "USE default settings",
         3: "EDIT modifiable settings",
-        4: "Exit",
+        4: "Exit"
     }
 
-    TYPE_DB_MAP = {
-        1: "defaultConfigs",
-        2: "editableConfigs"
+    VARS_MAP = {
+        1: 'DEFAULT',
+        2: 'EDITABLE'
     }
 
     LANGUAGE_MAP = {1: None, 2: "es"}
-
     ENCRYPTOR_MAP = {0: 'l', 1: 'e', 2: 'g', 3: 'u', 4: 'm', 5: 'i', 6: 'n', 7: 'o', 8: 's', 9: 'a'}
 
 

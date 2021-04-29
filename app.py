@@ -2,7 +2,6 @@ from time import time, sleep
 
 import pyautogui
 
-from src.json.config import get_configs
 from src.operations.functions import check_stop
 from src.operations.mouse import find_image_click
 from src.operations.windows import start_brave
@@ -21,22 +20,22 @@ def main():
         print(translate(Message.WELCOME))
         initial_time = time()
 
+        print(Vars.WIN_MIN, Vars.WIN_MAX, Vars.TIME_TO_REPEAT, Vars.TIME_END, Vars.POWER_OFF)
+
         while True:
             if check_stop(initial_time):
                 print(f"{Message.FINISH}{time() - initial_time}")
                 break
 
             start_brave()
-            i = 0
-            j = Vars.TIME_TO_REPEAT
-            waiting = True
+
+            i, j, waiting = 0, Vars.TIME_TO_REPEAT, True
             while waiting:
-                find_image_click(Image.NOTIFICATION_PATH)
+                find_image_click(Image.NOTIFICATION_PATH, -100, 100, -8, 8)
                 sleep(10)
                 i += 10
                 if i >= 60:
-                    j -= i
-                    i = 0
+                    i, j = 0, j - i
                     if j <= Vars.TIME_TO_REPEAT:
                         waiting = False
 

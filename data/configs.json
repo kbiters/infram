@@ -1,20 +1,16 @@
 {
-  "DEFAULT": [
-    {
-      "WIN_MIN": 5,
-      "WIN_MAX": 7,
-      "TIME_END": 3600,
-      "TIME_TO_REPEAT": 30,
-      "POWER_OFF": 0
-    }
-  ],
-  "EDITABLE": [
-    {
-      "WIN_MIN": 10,
-      "WIN_MAX": 15,
-      "TIME_END": 7200,
-      "TIME_TO_REPEAT": 500,
-      "POWER_OFF": 0
-    }
-  ]
+  "DEFAULT": {
+    "WIN_MIN": 5,
+    "WIN_MAX": 10,
+    "TIME_END": 3600,
+    "TIME_TO_REPEAT": 120,
+    "POWER_OFF": false
+  },
+  "EDITABLE": {
+    "WIN_MIN": 100,
+    "WIN_MAX": 100,
+    "TIME_TO_REPEAT": 100,
+    "TIME_END": 100,
+    "POWER_OFF": false
+  }
 }

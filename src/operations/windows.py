@@ -1,4 +1,3 @@
-import json
 import subprocess
 from random import randint, uniform
 from time import sleep
@@ -7,7 +6,7 @@ from src.operations.functions import key
 from src.operations.functions import start_alert
 from src.operations.mouse import find_image_click
 from src.operations.page import select_page
-from src.service.constants import Brave, Key, Data, Image, Vars
+from src.service.constants import Brave, Key, Image, Vars
 from src.service.translator import translate
 
 win_to_open = randint(Vars.WIN_MIN, Vars.WIN_MAX)
@@ -47,7 +46,7 @@ def open_windows():
             if not find_image_click(Image.NOTIFICATION_PATH, -100, 100, -8, 8):
                 key(Key.CTRL, Key.T)
             else:
-                sleep(uniform(0.4, 0.9))
+                sleep(uniform(0.7, 1.3))
                 find_image_click(Image.NEW_TAB_PATH)
             sleep(wait_to_type)
             select_page()
@@ -71,4 +70,3 @@ def close_windows():
             i += 1
     except OSError as error:
         print(translate(error))
-
