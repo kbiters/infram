@@ -31,12 +31,20 @@ class Message:
 +++++++++++++++++++++++++++++++++++++++++++++++++
 """
 
+    MENU = """
+1. USE default settings
+2. USE modifiable settings
+3. EDIT modifiable settings
+4. Exit
+"""
+
     SYNTAX_ERROR = "Number not allowed, enter an option again ..."
     SELECT_LANGUAGE = "Select language [1- ingles | 2- español]: "
     CHECK_YES_NO = " [y/n]: "
     FINISH = "Finish after: "
     GET_TYPE_DB_USE = "Enter the configuration you want to use 1. DEFAULT | 2. EDITABLE: "
-    GET_TYPE_VARS_USE = "Ingrese las variables que desea utilizar 1. DEFAULT | 2. EDITABLES: "
+    GET_OPTION_MENU = "Enter the option you wish to perform: "
+
 
 class Map:
     MENU_MAP = {

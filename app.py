@@ -7,6 +7,7 @@ from src.operations.mouse import find_image_click
 from src.operations.windows import start_brave
 from src.service.constants import Config, Message, Credentials, Vars, Image
 from src.service.credentials import check_session
+from src.service.menu import show_menu
 from src.service.translator import select_language, translate
 from src.service.utilities import check_data_created
 
@@ -17,10 +18,8 @@ def main():
     check_data_created()
 
     if check_session():
-        print(translate(Message.WELCOME))
+        show_menu()
         initial_time = time()
-
-        print(Vars.WIN_MIN, Vars.WIN_MAX, Vars.TIME_TO_REPEAT, Vars.TIME_END, Vars.POWER_OFF)
 
         while True:
             if check_stop(initial_time):

@@ -1,7 +1,6 @@
 import json
 
-from src.service.constants import Data, Vars, Map, Message
-from src.service.mapper import mapping
+from src.service.constants import Data, Vars
 
 
 def make_configs_default():
@@ -56,7 +55,3 @@ def save_configs(win_min, win_max, time_to_repeat, time_end, power_off):
             file.close()
     except OSError as error:
         print(error)
-
-
-def select_use_vars():
-    mapping(Map.VARS_MAP, int(input(Message.GET_TYPE_VARS_USE)))
