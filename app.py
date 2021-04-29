@@ -7,7 +7,6 @@ from src.operations.mouse import find_image_click
 from src.operations.windows import start_brave
 from src.service.constants import Config, Message, Credentials, Vars, Image
 from src.service.credentials import check_session
-from src.service.menu import show_menu
 from src.service.translator import select_language, translate
 from src.service.utilities import check_data_created
 
@@ -18,7 +17,7 @@ def main():
     check_data_created()
 
     if check_session():
-        show_menu()
+        print(translate(Message.WELCOME))
         initial_time = time()
 
         while True:
@@ -30,7 +29,7 @@ def main():
 
             i, j, waiting = 0, Vars.TIME_TO_REPEAT, True
             while waiting:
-                find_image_click(Image.NOTIFICATION_PATH, -100, 100, -8, 8)
+                find_image_click(Image.NOTIFICATION_PATH, -100, 100, -8, 8, True)
                 sleep(10)
                 i += 10
                 if i >= 60:

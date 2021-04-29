@@ -6,16 +6,16 @@ from src.operations.functions import key
 from src.operations.functions import start_alert
 from src.operations.mouse import find_image_click
 from src.operations.page import select_page
-from src.service.constants import Brave, Key, Image, Vars
+from src.service.constants import Brave, Key, Image, Vars, Config
 from src.service.translator import translate
 
 win_to_open = randint(Vars.WIN_MIN, Vars.WIN_MAX)
 win_to_close = win_to_open + 1
 
-wait_finish_opening = randint(3, 7)
-wait_to_start = randint(2, 4)
-wait_to_type = randint(1, 3)
-wait_to_close = randint(1, 2)
+wait_finish_opening = uniform(3.8, 7.2)
+wait_to_start = uniform(3.4, 6.3)
+wait_to_type = uniform(3.1, 5.4)
+wait_to_close = uniform(3.3, 4.2)
 
 
 def start_brave():
@@ -25,8 +25,7 @@ def start_brave():
     """
     try:
         start_alert()
-        subprocess.Popen(Brave.OPEN_LINK, shell=True)
-        # subprocess.Popen([Brave.PATH, '-new-tab'])
+        subprocess.Popen(Brave.OPEN_LINK)
         sleep(wait_finish_opening)
         open_windows()
     except OSError as error:
@@ -43,7 +42,7 @@ def open_windows():
         i = 1
         while i <= win_to_open:
             sleep(wait_to_start)
-            if not find_image_click(Image.NOTIFICATION_PATH, -100, 100, -8, 8):
+            if not find_image_click(Image.NOTIFICATION_PATH, -99, 97, -8, 7, True):
                 key(Key.CTRL, Key.T)
             else:
                 sleep(uniform(0.7, 1.3))
@@ -68,5 +67,6 @@ def close_windows():
             sleep(wait_to_close)
             key(Key.CTRL, Key.W)
             i += 1
+        sleep(2)
     except OSError as error:
         print(translate(error))

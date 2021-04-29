@@ -1,7 +1,7 @@
 import os
 
 from src.json.config import get_configs
-from src.service.constants import Message, Map, Command
+from src.service.constants import Message, Map, Command, Vars
 from src.service.mapper import mapping
 from src.service.translator import translate
 
@@ -26,6 +26,7 @@ def check_opt(opt_menu):
 
 def select_use_vars(opt_menu):
     try:
-        get_configs(mapping(Map.VARS_MAP, opt_menu))
+        Vars.WIN_MIN, Vars.WIN_MAX, Vars.TIME_TO_REPEAT, Vars.TIME_END, Vars.POWER_OFF = get_configs(
+            mapping(Map.VARS_MAP, opt_menu))
     except OSError as error:
         print(error)

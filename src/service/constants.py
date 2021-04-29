@@ -1,26 +1,27 @@
 class Config:
     LANGUAGE = None
+    CLICKS = 0
 
 
 class Vars:
-    WIN_MIN = 0
-    WIN_MAX = 0
-    TIME_END = 0
-    TIME_TO_REPEAT = 0
-    POWER_OFF = 0
+    WIN_MIN = 1
+    WIN_MAX = 2
+    TIME_END = 36000
+    TIME_TO_REPEAT = 1
+    POWER_OFF = None
 
 
 class Data:
     CONFIGS = "configs.json"
     CREDENTIALS = "credentials.json"
-    JSON_TEST = "test.json"
+    CLICKS = "clicked_notifications.json"
     DATA_PATH = "data/"
 
 
 class Image:
     NOTIFICATION_PATH = ("data/images/notification.png",)
 
-    NEW_TAB_PATH = ("data/images/more.png",)
+    NEW_TAB_PATH = ("data/images/more_black.png", "data/images/more_white.png")
 
 
 class Message:
@@ -86,8 +87,8 @@ class Mouse:
 class Brave:
     STARTUP_ALERT = "Infram will start in 10 sec, press OK or close this alert to start now ..."
     TITLE_ALERT = "Infram - Start Alert"
-    # PATH = "C:/Program Files/BraveSoftware/Brave-Browser/Application/brave.exe"
-    OPEN_LINK = "cmd /c start brave https://github.com/gianca1994 --new-window"
+    LINK = "https://github.com/gianca1994"
+    OPEN_LINK = f"cmd /c start brave {LINK} --new-window"
 
 
 class Page:
