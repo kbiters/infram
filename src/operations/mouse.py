@@ -5,6 +5,7 @@ from time import sleep
 import pyautogui
 
 from src.service.constants import Config, Data
+from src.service.translator import translate
 
 
 def find_image_click(paths, x_min=0, x_max=0, y_min=0, y_max=0, notification=False):
@@ -17,6 +18,7 @@ def find_image_click(paths, x_min=0, x_max=0, y_min=0, y_max=0, notification=Fal
                 pyautogui.moveTo(coorX + randint(x_min, x_max), coorY + randint(y_min, y_max))
                 if notification:
                     Config.CLICKS += 1
+                    print(translate("Ad detected and clicked, ads clicked: ") + Config.CLICKS)
                     save_clicks(Config.CLICKS)
                 sleep(uniform(0.2, 0.7))
                 pyautogui.click()

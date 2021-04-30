@@ -1,5 +1,5 @@
+import random
 import subprocess
-from datetime import time
 from random import randint, uniform
 from time import sleep
 
@@ -7,7 +7,7 @@ from src.operations.functions import key
 from src.operations.functions import start_alert
 from src.operations.mouse import find_image_click
 from src.operations.page import select_page
-from src.service.constants import Brave, Key, Image, Vars, Config
+from src.service.constants import Brave, Key, Image, Vars
 from src.service.translator import translate
 
 win_to_open = randint(Vars.WIN_MIN, Vars.WIN_MAX)
@@ -26,12 +26,8 @@ def start_brave():
     """
     try:
         start_alert()
-        if Config.OPEN_NEW_BROWSER:
-            subprocess.Popen(Brave.OPEN_LINK)
-            Config.OPEN_NEW_BROWSER = False
-            Config.TIME_STARTS_BROWSER = time()
+        subprocess.Popen(random.choice(Brave.OPEN_LINKS))
         sleep(wait_finish_opening)
-        print(Config.OPEN_NEW_BROWSER, Config.TIME_STARTS_BROWSER)
         open_windows()
     except OSError as error:
         print(translate(error))

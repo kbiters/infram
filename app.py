@@ -24,7 +24,8 @@ def main():
 
         if check_session():
             command(Command.CLEAR)
-            print(translate(Message.WELCOME))
+            print(Message.WELCOME)
+            print(translate(f"Window Min: {Vars.WIN_MIN}, Window Max: {Vars.WIN_MAX}, Time Repeat: {Vars.TIME_TO_REPEAT}, Time End: {Vars.TIME_END}, Power OFF: {Vars.POWER_OFF}"))
             initial_time = time()
 
             while True:

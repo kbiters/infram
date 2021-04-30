@@ -1,11 +1,7 @@
 class Config:
     LANGUAGE = None
     CLICKS = 0
-
-    OPEN_NEW_BROWSER = True
-    TIME_STARTS_BROWSER = 0
-
-    TIME_FINISH_DEMO = 9619786268
+    TIME_FINISH_DEMO = 1620615599
 
 
 class Vars:
@@ -96,8 +92,11 @@ class Mouse:
 class Brave:
     STARTUP_ALERT = "Infram will start in 10 sec, press OK or close this alert to start now ..."
     TITLE_ALERT = "Infram - Start Alert"
-    LINK = "https://www.youtube.com/watch?v=hLgukYiIJLQ"
-    OPEN_LINK = f"cmd /c start brave {LINK} --new-window"
+
+    OPEN_LINKS = [
+        "cmd /c start brave https://www.youtube.com/watch?v=PnJa6DQ6DKk --new-window",
+        "cmd /c start brave https://www.youtube.com/watch?v=dbfb5DXvQqA --new-window"
+    ]
 
 
 class Page:

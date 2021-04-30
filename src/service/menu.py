@@ -1,4 +1,4 @@
-import os
+import sys
 
 from src.json.config import get_configs, make_configs
 from src.operations.functions import command
@@ -9,9 +9,13 @@ from src.service.translator import translate
 def show_menu():
     try:
         command(Command.CLEAR)
-        print(translate(Message.WELCOME))
+        print(Message.WELCOME)
         print(translate(Message.MENU))
-        check_opt(int(input(translate(Message.GET_OPTION_MENU))))
+        opt = int(input(translate(Message.GET_OPTION_MENU)))
+        if 1 <= opt <= 3:
+            check_opt(opt)
+        else:
+            sys.exit()
     except OSError as error:
         print(error)
 
@@ -23,8 +27,7 @@ def check_opt(opt_menu):
         Vars.WIN_MIN, Vars.WIN_MAX, Vars.TIME_TO_REPEAT, Vars.TIME_END, Vars.POWER_OFF = get_configs()
     elif opt_menu == 3:
         save_editable_vars()
-    else:
-        os.system(Command.EXIT)
+
 
 
 def save_editable_vars():
