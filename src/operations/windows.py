@@ -1,4 +1,5 @@
 import subprocess
+from datetime import time
 from random import randint, uniform
 from time import sleep
 
@@ -25,8 +26,12 @@ def start_brave():
     """
     try:
         start_alert()
-        subprocess.Popen(Brave.OPEN_LINK)
+        if Config.OPEN_NEW_BROWSER:
+            subprocess.Popen(Brave.OPEN_LINK)
+            Config.OPEN_NEW_BROWSER = False
+            Config.TIME_STARTS_BROWSER = time()
         sleep(wait_finish_opening)
+        print(Config.OPEN_NEW_BROWSER, Config.TIME_STARTS_BROWSER)
         open_windows()
     except OSError as error:
         print(translate(error))

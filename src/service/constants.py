@@ -1,6 +1,8 @@
 class Config:
     LANGUAGE = None
     CLICKS = 0
+    OPEN_NEW_BROWSER = True
+    TIME_STARTS_BROWSER = 0
 
 
 class Vars:
