@@ -3,23 +3,17 @@ import json
 from src.service.constants import Data
 
 
-def make_configs_default():
+def make_configs(win_min=5, win_max=10, time_to_repeat=180,
+                 time_end=7200, power_off=False):
     try:
         with open(Data.DATA_PATH + Data.CONFIGS, 'w') as file:
             data = {
-                "DEFAULT": {
-                    "WIN_MIN": 5,
-                    "WIN_MAX": 10,
-                    "TIME_TO_REPEAT": 120,
-                    "TIME_END": 3600,
-                    "POWER_OFF": False
-                },
                 "EDITABLE": {
-                    "WIN_MIN": 5,
-                    "WIN_MAX": 10,
-                    "TIME_TO_REPEAT": 120,
-                    "TIME_END": 3600,
-                    "POWER_OFF": False
+                    "WIN_MIN": win_min,
+                    "WIN_MAX": win_max,
+                    "TIME_TO_REPEAT": time_to_repeat,
+                    "TIME_END": time_end,
+                    "POWER_OFF": power_off
                 }
             }
             json.dump(data, file, indent=4)
@@ -27,35 +21,16 @@ def make_configs_default():
         print(error)
 
 
-def get_configs(type_config):
+def get_configs():
     try:
         with open(Data.DATA_PATH + Data.CONFIGS) as file:
             data = json.load(file)
-            win_min = data[type_config]['WIN_MIN']
-            win_max = data[type_config]['WIN_MAX']
-            time_to_repeat = data[type_config]['TIME_TO_REPEAT']
-            time_end = data[type_config]['TIME_END']
-            power_off = data[type_config]['POWER_OFF']
+            win_min = data['EDITABLE']['WIN_MIN']
+            win_max = data['EDITABLE']['WIN_MAX']
+            time_to_repeat = data['EDITABLE']['TIME_TO_REPEAT']
+            time_end = data['EDITABLE']['TIME_END']
+            power_off = data['EDITABLE']['POWER_OFF']
             file.close()
             return win_min, win_max, time_to_repeat, time_end, power_off
-    except OSError as error:
-        print(error)
-
-
-def save_configs(win_min, win_max, time_to_repeat, time_end, power_off):
-    try:
-        with open(Data.DATA_PATH + Data.CONFIGS, 'r+') as file:
-            data = json.load(file)
-            data['EDITABLE'] = {
-                'WIN_MIN': win_min,
-                'WIN_MAX': win_max,
-                'TIME_TO_REPEAT': time_to_repeat,
-                'TIME_END': time_end,
-                'POWER_OFF': power_off
-            }
-            file.seek(0)
-            file.write(json.dumps(data, indent=4))
-            file.truncate()
-            file.close()
     except OSError as error:
         print(error)

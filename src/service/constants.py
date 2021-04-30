@@ -1,20 +1,24 @@
 class Config:
     LANGUAGE = None
     CLICKS = 0
+
     OPEN_NEW_BROWSER = True
     TIME_STARTS_BROWSER = 0
 
+    TIME_FINISH_DEMO = 9619786268
+
 
 class Vars:
-    WIN_MIN = 1
-    WIN_MAX = 2
-    TIME_END = 36000
-    TIME_TO_REPEAT = 1
-    POWER_OFF = None
+    # DEFAULT
+    WIN_MIN = 5
+    WIN_MAX = 10
+    TIME_TO_REPEAT = 180
+    TIME_END = 7200
+    POWER_OFF = False
 
 
 class Data:
-    CONFIGS = "configs.json"
+    CONFIGS = "config.json"
     CREDENTIALS = "credentials.json"
     CLICKS = "clicked_notifications.json"
     DATA_PATH = "data/"
@@ -47,19 +51,22 @@ class Message:
     FINISH = "Finish after: "
     GET_TYPE_DB_USE = "Enter the configuration you want to use 1. DEFAULT | 2. EDITABLE: "
     GET_OPTION_MENU = "Enter the option you wish to perform: "
+    FINISH_DEMO = "InfraBot testing time is over, stay informed in our discord group: https://discord.gg/PSs4c4pW"
+    PRESS_KEY_EXIT = "Press key to exit..."
+
+    SET_WIN_MIN = "Enter the MINIMUM number of tabs: "
+    SET_WIN_MAX = "Enter the MAXIMUM number of tabs: "
+    SET_TIME_TO_REPEAT = "Enter the TIME(min.) the process is REPEATED: "
+    SET_TIME_END = "Enter the TIME(hours.) at which the process ENDS: "
+    SET_POWER_OFF = "Enter whether or not to turn off the equipment after the processing time has elapsed: "
 
 
 class Map:
     MENU_MAP = {
-        1: "USE modifiable settings",
-        2: "USE default settings",
+        1: "USE default settings",
+        2: "USE modifiable settings",
         3: "EDIT modifiable settings",
         4: "Exit"
-    }
-
-    VARS_MAP = {
-        1: 'DEFAULT',
-        2: 'EDITABLE'
     }
 
     LANGUAGE_MAP = {1: None, 2: "es"}
@@ -89,7 +96,7 @@ class Mouse:
 class Brave:
     STARTUP_ALERT = "Infram will start in 10 sec, press OK or close this alert to start now ..."
     TITLE_ALERT = "Infram - Start Alert"
-    LINK = "https://github.com/gianca1994"
+    LINK = "https://www.youtube.com/watch?v=hLgukYiIJLQ"
     OPEN_LINK = f"cmd /c start brave {LINK} --new-window"
 
 
