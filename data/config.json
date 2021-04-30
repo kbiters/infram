@@ -1,9 +1,9 @@
 {
     "EDITABLE": {
         "WIN_MIN": 7,
-        "WIN_MAX": 17,
-        "TIME_TO_REPEAT": 180.0,
-        "TIME_END": 36000.0,
+        "WIN_MAX": 16,
+        "TIME_TO_REPEAT": 180,
+        "TIME_END": 28800,
         "POWER_OFF": false
     }
 }

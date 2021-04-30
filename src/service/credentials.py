@@ -46,7 +46,7 @@ def check_session():
             else:
                 return False
     except OSError as error:
-        print(error)
+        print(translate(error))
 
 
 def decrypt_vars_private():
@@ -64,7 +64,7 @@ def decrypt_vars_private():
         assert VAR_Y_decrypt and EXPONENT_1_decrypt and EXPONENT_2_decrypt is not None
         return VAR_Y_decrypt, EXPONENT_1_decrypt, EXPONENT_2_decrypt
     except OSError as error:
-        print(error)
+        print(translate(error))
 
 
 def math_operation(decrypted_second_hash):
@@ -82,7 +82,7 @@ def math_operation(decrypted_second_hash):
         e = sqrt(a ** int(c) + float(b) ** int(d))
         return str(round(e, ))
     except OSError as error:
-        print(error)
+        print(translate(error))
 
 
 def decryptor(x, d):
@@ -103,7 +103,7 @@ def decryptor(x, d):
                     x[i] = str(j)
         return ''.join(x)
     except OSError as error:
-        print(error)
+        print(translate(error))
 
 
 def set_user_first_hash():
@@ -114,7 +114,7 @@ def set_user_first_hash():
     try:
         return input(translate(Credentials.SET_FIRST))
     except OSError as error:
-        print(error)
+        print(translate(error))
 
 
 def set_user_second_hash():
@@ -125,7 +125,7 @@ def set_user_second_hash():
     try:
         return input(translate(Credentials.SET_SECOND))
     except OSError as error:
-        print(error)
+        print(translate(error))
 
 # SESSION_KEY_ENCRIPTADA = mseassunioeasomi
 # SESSION_KEY = 4819883657198745 <--- la funcion math_operation() devuelve exactamente ese numero

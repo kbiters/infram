@@ -1,56 +1,44 @@
 from time import time, sleep
 
-import ntplib
 import pyautogui
 
-from src.operations.functions import check_stop, command
 from src.operations.mouse import find_image_click
 from src.operations.windows import start_brave
-from src.service.constants import Config, Message, Credentials, Vars, Image, Command
-from src.service.credentials import check_session
+from src.service.constants import Config, Vars, Image
+from src.service.main_window import show_main_window
 from src.service.menu import show_menu
-from src.service.translator import select_language, translate
-from src.service.utilities import check_data_created
+from src.service.translator import select_language
+from src.service.utilities import check_data_created, check_finish_demo, check_credentials, check_finish_bot
 
 
 def main():
     Config.LANGUAGE = select_language()
-    response_time = ntplib.NTPClient().request('ar.pool.ntp.org', version=3)
+    pyautogui.FAILSAFE = False
 
-    if response_time.tx_time < Config.TIME_FINISH_DEMO:
-        pyautogui.FAILSAFE = False
-        check_data_created()
-        show_menu()
+    check_finish_demo()
+    check_data_created()
+    check_credentials()
 
-        if check_session():
-            command(Command.CLEAR)
-            print(Message.WELCOME)
-            print(translate(f"Window Min: {Vars.WIN_MIN}, Window Max: {Vars.WIN_MAX}, Time Repeat: {Vars.TIME_TO_REPEAT}, Time End: {Vars.TIME_END}, Power OFF: {Vars.POWER_OFF}"))
-            initial_time = time()
+    show_menu()
+    show_main_window()
 
-            while True:
-                if check_stop(initial_time):
-                    print(f"{Message.FINISH}{time() - initial_time}")
-                    break
+    initial_time = time()
 
-                start_brave()
+    while True:
+        check_finish_demo()
+        check_finish_bot(initial_time)
 
-                i, j, waiting = 0, Vars.TIME_TO_REPEAT, True
-                while waiting:
-                    find_image_click(Image.NOTIFICATION_PATH, -100, 100, -8, 8, True)
-                    sleep(10)
-                    i += 10
-                    if i >= 60:
-                        i, j = 0, j - i
-                        if j <= Vars.TIME_TO_REPEAT:
-                            waiting = False
+        start_brave()
 
-        else:
-            print(translate(Credentials.ERROR))
-            input(translate(Message.PRESS_KEY_EXIT))
-    else:
-        print(translate(Message.FINISH_DEMO))
-        input(translate(Message.PRESS_KEY_EXIT))
+        i, j, waiting = 0, Vars.TIME_TO_REPEAT, True
+        while waiting:
+            find_image_click(Image.NOTIFICATION_PATH, -100, 100, -8, 8, True)
+            sleep(10)
+            i += 10
+            if i >= 60:
+                i, j = 0, j - i
+                if j <= Vars.TIME_TO_REPEAT:
+                    waiting = False
 
 
 if __name__ == "__main__":

@@ -3,13 +3,12 @@ class Config:
     CLICKS = 0
     TIME_FINISH_DEMO = 1620615599
 
-
 class Vars:
     # DEFAULT
-    WIN_MIN = 5
-    WIN_MAX = 10
+    WIN_MIN = 7
+    WIN_MAX = 16
     TIME_TO_REPEAT = 180
-    TIME_END = 7200
+    TIME_END = 28800
     POWER_OFF = False
 
 
@@ -27,15 +26,13 @@ class Image:
 
 
 class Message:
-    WELCOME = """
-+++++++++++++++++++++++++++++++++++++++++++++++++
+    WELCOME = """+++++++++++++++++++++++++++++++++++++++++++++++++
 ----------- ¡Welcome to Infram Bot! -------------
 ------------- ¡Created by Kbiters! --------------
 +++++++++++++++++++++++++++++++++++++++++++++++++
 """
 
-    MENU = """
-1. USE default settings
+    MENU = """1. USE default settings
 2. USE modifiable settings
 3. EDIT modifiable settings
 4. Exit
@@ -54,7 +51,7 @@ class Message:
     SET_WIN_MAX = "Enter the MAXIMUM number of tabs: "
     SET_TIME_TO_REPEAT = "Enter the TIME(min.) the process is REPEATED: "
     SET_TIME_END = "Enter the TIME(hours.) at which the process ENDS: "
-    SET_POWER_OFF = "Enter whether or not to turn off the equipment after the processing time has elapsed: "
+    SET_POWER_OFF = "Enter whether or not to turn off the equipment after the processing time has elapsed "
 
 
 class Map:

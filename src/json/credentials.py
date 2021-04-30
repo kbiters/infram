@@ -1,16 +1,20 @@
 import json
 
 from src.service.constants import Data
+from src.service.translator import translate
 
 
 def make_credentials_default():
-    with open(Data.DATA_PATH + Data.CREDENTIALS, 'w') as f:
-        data = {'credentials': []}
-        data["credentials"].append({
-            'cred1': "None",
-            'cred2': "None",
-        })
-        json.dump(data, f, indent=4)
+    try:
+        with open(Data.DATA_PATH + Data.CREDENTIALS, 'w') as f:
+            data = {'credentials': []}
+            data["credentials"].append({
+                'cred1': "None",
+                'cred2': "None",
+            })
+            json.dump(data, f, indent=4)
+    except OSError as error:
+        print(translate(error))
 
 
 def get_credentials():
@@ -27,7 +31,7 @@ def get_credentials():
                 second_hash = credentials['cred2']
             return list(first_hash.lower()), list(second_hash.lower())
     except OSError as error:
-        print(error)
+        print(translate(error))
 
 
 def save_credentials(credential1, credential2):
@@ -47,6 +51,6 @@ def save_credentials(credential1, credential2):
         })
 
         with open(Data.DATA_PATH + Data.CREDENTIALS, 'w') as f:
-            json.dump(data, f)
+            json.dump(data, f, indent=4)
     except OSError as error:
-        print(error)
+        print(translate(error))

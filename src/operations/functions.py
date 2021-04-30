@@ -59,7 +59,6 @@ def check_stop(initial_time):
     time is equal to or greater than the set time to stop, 'True' returns.
     """
     try:
-        if time() - initial_time >= Vars.TIME_END:
-            return True
+        return time() - initial_time >= Vars.TIME_END
     except OSError as error:
-        print(error)
+        print(translate(error))

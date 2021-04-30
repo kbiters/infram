@@ -1,10 +1,10 @@
 import json
 
-from src.service.constants import Data
+from src.service.constants import Data, Vars
 
 
-def make_configs(win_min=5, win_max=10, time_to_repeat=180,
-                 time_end=7200, power_off=False):
+def make_configs(win_min=Vars.WIN_MIN, win_max=Vars.WIN_MAX, time_to_repeat=Vars.TIME_TO_REPEAT,
+                 time_end=Vars.TIME_END, power_off=Vars.POWER_OFF):
     try:
         with open(Data.DATA_PATH + Data.CONFIGS, 'w') as file:
             data = {
