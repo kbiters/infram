@@ -3,20 +3,22 @@ import subprocess
 from random import randint, uniform
 from time import sleep
 
+from src.json import config
 from src.operations.functions import key
 from src.operations.functions import start_alert
 from src.operations.mouse import find_image_click
 from src.operations.page import select_page
-from src.service.constants import Brave, Key, Image, Vars
+from src.service.constants import Brave, Key, Image
 from src.service.translator import translate
-
-win_to_open = randint(Vars.WIN_MIN, Vars.WIN_MAX)
-win_to_close = win_to_open + 1
 
 wait_finish_opening = uniform(3.8, 7.2)
 wait_to_start = uniform(3.4, 6.3)
 wait_to_type = uniform(3.1, 5.4)
 wait_to_close = uniform(3.3, 4.2)
+
+
+def get_open_wins():
+    return randint(config.win_min, config.win_max)
 
 
 def start_brave():
@@ -41,7 +43,8 @@ def open_windows():
     """
     try:
         i = 1
-        while i <= win_to_open:
+        openWindows = get_open_wins()
+        while i <= openWindows:
             sleep(wait_to_start)
             if not find_image_click(Image.NOTIFICATION_PATH, -99, 97, -8, 7, True):
                 key(Key.CTRL, Key.T)
@@ -51,12 +54,12 @@ def open_windows():
             sleep(wait_to_type)
             select_page()
             i += 1
-        close_windows()
+        close_windows(openWindows)
     except OSError as error:
         print(translate(error))
 
 
-def close_windows():
+def close_windows(openWindows):
     """
     Function to close all tabs + 1, this '+1' refers to also closing the tab that initially
     opened the 'start_brave' function, waiting for a random time between tab and tab closure,
@@ -64,7 +67,7 @@ def close_windows():
     """
     try:
         i = 1
-        while i <= win_to_close:
+        while i <= openWindows + 1:
             sleep(wait_to_close)
             key(Key.CTRL, Key.W)
             i += 1

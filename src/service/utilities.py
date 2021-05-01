@@ -4,7 +4,7 @@ from time import time
 
 import ntplib
 
-from src.json.config import make_configs
+from src.json import config
 from src.json.credentials import make_credentials_default
 from src.operations.functions import check_stop
 from src.service.constants import Data, Config, Message, Credentials
@@ -24,7 +24,7 @@ def check_data_created():
 
 def check_files_created():
     if not os.path.isfile(Data.DATA_PATH + Data.CONFIGS):
-        make_configs()
+        config.apply_config()
 
     if not os.path.isfile(Data.DATA_PATH + Data.CREDENTIALS):
         make_credentials_default()

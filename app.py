@@ -2,9 +2,10 @@ from time import time, sleep
 
 import pyautogui
 
+from src.json import config
 from src.operations.mouse import find_image_click
 from src.operations.windows import start_brave
-from src.service.constants import Config, Vars, Image
+from src.service.constants import Config, Image
 from src.service.main_window import show_main_window
 from src.service.menu import show_menu
 from src.service.translator import select_language
@@ -30,14 +31,14 @@ def main():
 
         start_brave()
 
-        i, j, waiting = 0, Vars.TIME_TO_REPEAT, True
+        i, j, waiting = 0, config.get_time_to_repeat(), True
         while waiting:
             find_image_click(Image.NOTIFICATION_PATH, -100, 100, -8, 8, True)
             sleep(10)
             i += 10
             if i >= 60:
                 i, j = 0, j - i
-                if j <= Vars.TIME_TO_REPEAT:
+                if j <= config.get_time_to_repeat():
                     waiting = False
 
 

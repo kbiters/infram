@@ -3,14 +3,6 @@ class Config:
     CLICKS = 0
     TIME_FINISH_DEMO = 1620615599
 
-class Vars:
-    # DEFAULT
-    WIN_MIN = 7
-    WIN_MAX = 16
-    TIME_TO_REPEAT = 180
-    TIME_END = 28800
-    POWER_OFF = False
-
 
 class Data:
     CONFIGS = "config.json"

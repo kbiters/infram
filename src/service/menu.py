@@ -1,8 +1,9 @@
+import json
 import sys
 
-from src.json.config import get_configs, make_configs
+from src.json import config
 from src.operations.functions import command
-from src.service.constants import Message, Command, Vars
+from src.service.constants import Message, Command, Data
 from src.service.translator import translate
 
 
@@ -12,64 +13,42 @@ def show_menu():
         print(Message.WELCOME)
         print(translate(Message.MENU))
         opt = int(input(translate(Message.GET_OPTION_MENU)))
-        if 1 <= opt <= 3:
+        if 2 <= opt <= 3:
             check_opt(opt)
-        else:
+        elif opt == 4:
             sys.exit()
     except OSError as error:
         print(error)
 
 
 def check_opt(opt_menu):
-    if opt_menu == 1:
-        pass
-    elif opt_menu == 2:
-        Vars.WIN_MIN, Vars.WIN_MAX, Vars.TIME_TO_REPEAT, Vars.TIME_END, Vars.POWER_OFF = get_configs()
+    if opt_menu == 2:
+        get_configs()
     elif opt_menu == 3:
-        save_editable_vars()
+        set_vars()
 
 
-def save_editable_vars():
+def set_vars():
     try:
-        make_configs(set_win_min(), set_win_max(), set_time_to_repeat(),
-                     set_time_end(), set_power_off())
-        command(Command.CLEAR)
-        show_menu()
+        config.set_win_min(int(input(translate(Message.SET_WIN_MIN))))
+        config.set_win_max(int(input(translate(Message.SET_WIN_MAX))))
+        config.set_time_to_repeat(float(input(translate(Message.SET_TIME_TO_REPEAT))) * 60)
+        config.set_time_end(float(input(translate(Message.SET_TIME_END))) * 3600)
+        config.set_power_off(True if input(translate(Message.SET_POWER_OFF) +
+                                           Message.CHECK_YES_NO).lower() == "y" else False)
+        config.apply_config()
     except OSError as error:
         print(translate(error))
 
 
-def set_win_min():
+def get_configs():
     try:
-        return int(input(translate(Message.SET_WIN_MIN)))
+        with open(Data.DATA_PATH + Data.CONFIGS) as file:
+            data = json.load(file)
+            config.set_win_min(data.get('WIN_MIN'))
+            config.set_win_max(data.get('WIN_MAX'))
+            config.set_time_to_repeat(data.get('TIME_TO_REPEAT'))
+            config.set_time_end(data.get('TIME_END'))
+            config.set_power_off(data.get('POWER_OFF'))
     except OSError as error:
-        print(translate(error))
-
-
-def set_win_max():
-    try:
-        return int(input(translate(Message.SET_WIN_MAX)))
-    except OSError as error:
-        print(translate(error))
-
-
-def set_time_to_repeat():
-    try:
-        return float(input(translate(Message.SET_TIME_TO_REPEAT))) * 60
-    except OSError as error:
-        print(translate(error))
-
-
-def set_time_end():
-    try:
-        return float(input(translate(Message.SET_TIME_END))) * 3600
-    except OSError as error:
-        print(translate(error))
-
-
-def set_power_off():
-    try:
-        power_off = str(input(translate(Message.SET_POWER_OFF) + Message.CHECK_YES_NO))
-        return power_off.lower() == "y"
-    except OSError as error:
-        print(translate(error))
+        print(error)
