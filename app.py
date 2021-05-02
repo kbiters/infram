@@ -22,6 +22,7 @@ def main():
 
     show_menu()
     show_main_window()
+    time_to_repeat = config.get_time_to_repeat()
 
     initial_time = time()
 
@@ -31,14 +32,14 @@ def main():
 
         start_brave()
 
-        i, j, waiting = 0, config.get_time_to_repeat(), True
+        i, j, waiting = 0, time_to_repeat, True
         while waiting:
             find_image_click(Image.NOTIFICATION_PATH, -100, 100, -8, 8, True)
             sleep(10)
             i += 10
-            if i >= 60:
-                i, j = 0, j - i
-                if j <= config.get_time_to_repeat():
+            if i >= 30:
+                j, i = j - i, 0
+                if j <= 0:
                     waiting = False
 
 

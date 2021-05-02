@@ -5,10 +5,10 @@ from src.service.constants import Data
 
 class Configs:
     def __init__(self):
-        self.win_min = 1
-        self.win_max = 1
-        self.time_to_repeat = 1
-        self.time_end = 1
+        self.win_min = 7
+        self.win_max = 13
+        self.time_to_repeat = 300
+        self.time_end = 28800
         self.power_off = False
 
     def get_win_min(self):

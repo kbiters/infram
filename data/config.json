@@ -1,7 +1,7 @@
 {
-    "WIN_MIN": 8,
-    "WIN_MAX": 18,
-    "TIME_TO_REPEAT": 120.0,
-    "TIME_END": 36000.0,
+    "WIN_MIN": 7,
+    "WIN_MAX": 13,
+    "TIME_TO_REPEAT": 300,
+    "TIME_END": 28800,
     "POWER_OFF": false
 }

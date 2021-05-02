@@ -83,8 +83,12 @@ class Brave:
     TITLE_ALERT = "Infram - Start Alert"
 
     OPEN_LINKS = [
-        "cmd /c start brave https://www.youtube.com/watch?v=PnJa6DQ6DKk --new-window",
-        "cmd /c start brave https://www.youtube.com/watch?v=dbfb5DXvQqA --new-window"
+        "cmd /c start brave https://www.youtube.com/watch?v=CWWfcB_Xen4 --new-window",
+        "cmd /c start brave https://www.youtube.com/watch?v=NAOrYQOMsmk --new-window",
+        "cmd /c start brave https://www.youtube.com/watch?v=eJDwfPfL3cQ --new-window",
+        "cmd /c start brave https://www.youtube.com/watch?v=xq24HgdNBDo --new-window",
+        "cmd /c start brave https://www.youtube.com/watch?v=DpQHHIX3ZNY --new-window",
+        "cmd /c start brave https://www.youtube.com/watch?v=GF5QEaTkIXQ --new-window"
     ]
 
 
