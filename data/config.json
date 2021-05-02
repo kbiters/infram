@@ -1,6 +1,6 @@
 {
-    "WIN_MIN": 7,
-    "WIN_MAX": 13,
+    "WIN_MIN": 13,
+    "WIN_MAX": 26,
     "TIME_TO_REPEAT": 300,
     "TIME_END": 28800,
     "POWER_OFF": false

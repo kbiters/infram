@@ -1,5 +1,6 @@
 import random
 import subprocess
+from datetime import datetime, timedelta
 from random import randint, uniform
 from time import sleep
 
@@ -8,7 +9,7 @@ from src.operations.functions import key
 from src.operations.functions import start_alert
 from src.operations.mouse import find_image_click
 from src.operations.page import select_page
-from src.service.constants import Brave, Key, Image
+from src.service.constants import Brave, Key, Image, Config
 from src.service.translator import translate
 
 wait_finish_opening = uniform(3.8, 7.2)
@@ -28,7 +29,10 @@ def start_brave():
     """
     try:
         start_alert()
-        subprocess.Popen(random.choice(Brave.OPEN_LINKS))
+        if not Config.ACTIVE_BROWSER:
+            subprocess.Popen(random.choice(Brave.OPEN_LINKS))
+            Config.ACTIVE_BROWSER = True
+            Config.TIME_NOW = datetime.now() + timedelta(minutes=30)
         sleep(wait_finish_opening)
         open_windows()
     except OSError as error:
@@ -67,7 +71,14 @@ def close_windows(openWindows):
     """
     try:
         i = 1
-        while i <= openWindows + 1:
+
+        if datetime.now() >= Config.TIME_NOW:
+            closeWindows = openWindows + 1
+            Config.ACTIVE_BROWSER = False
+        else:
+            closeWindows = openWindows
+
+        while i <= closeWindows:
             sleep(wait_to_close)
             key(Key.CTRL, Key.W)
             i += 1

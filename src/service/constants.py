@@ -2,7 +2,8 @@ class Config:
     LANGUAGE = None
     CLICKS = 0
     TIME_FINISH_DEMO = 1620615599
-
+    ACTIVE_BROWSER = False
+    TIME_NOW = None
 
 class Data:
     CONFIGS = "config.json"
