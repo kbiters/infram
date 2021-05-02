@@ -5,9 +5,9 @@ from src.service.constants import Data
 
 class Configs:
     def __init__(self):
-        self.win_min = 1
-        self.win_max = 1
-        self.time_to_repeat = 1
+        self.win_min = 6
+        self.win_max = 13
+        self.time_to_repeat = 450
         self.time_end = 28800
         self.power_off = False
 

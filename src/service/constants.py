@@ -5,6 +5,7 @@ class Config:
     ACTIVE_BROWSER = False
     TIME_NOW = None
 
+
 class Data:
     CONFIGS = "config.json"
     CREDENTIALS = "credentials.json"

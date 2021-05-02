@@ -6,8 +6,8 @@ import ntplib
 
 from src.json import config
 from src.json.credentials import make_credentials_default
-from src.operations.functions import check_stop
-from src.service.constants import Data, Config, Message, Credentials
+from src.operations.functions import check_stop, command
+from src.service.constants import Data, Config, Message, Credentials, Command
 from src.service.credentials import check_session
 from src.service.translator import translate
 
@@ -45,6 +45,9 @@ def check_credentials():
 
 def check_finish_bot(initial_time):
     if check_stop(initial_time):
+        if config.power_off:
+            command(Command.POWER_OFF)
+
         print(f"{translate(Message.FINISH)} {int(time() - initial_time)} {translate('seconds.')}")
         press_key_exit()
 
