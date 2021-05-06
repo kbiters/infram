@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="background">
+    <file>background_infram.jpg</file>
+  </qresource>
+</RCC>
