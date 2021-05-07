@@ -100,7 +100,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../utilities/logo/background_infram.jpg</pixmap>
+     <pixmap>../data/images/logo/background_infram.jpg</pixmap>
     </property>
    </widget>
    <widget class="QPushButton" name="btnStart">
@@ -117,7 +117,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../utilities/buttons/button_start.png</normaloff>../utilities/buttons/button_start.png</iconset>
+      <normaloff>../data/images/buttons/button_start.png</normaloff>../data/images/buttons/button_start.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -140,7 +140,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../utilities/buttons/button_setting.png</normaloff>../utilities/buttons/button_setting.png</iconset>
+      <normaloff>../data/images/buttons/button_setting.png</normaloff>../data/images/buttons/button_setting.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -163,7 +163,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../utilities/buttons/button_exit.png</normaloff>../utilities/buttons/button_exit.png</iconset>
+      <normaloff>../data/images/buttons/button_exit.png</normaloff>../data/images/buttons/button_exit.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -186,7 +186,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../utilities/buttons/button_update.png</normaloff>../utilities/buttons/button_update.png</iconset>
+      <normaloff>../data/images/buttons/button_update.png</normaloff>../data/images/buttons/button_update.png</iconset>
     </property>
     <property name="iconSize">
      <size>

@@ -82,7 +82,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../utilities/logo/background_infram - setting.jpg</pixmap>
+     <pixmap>../data/images/logo/background_infram - setting.jpg</pixmap>
     </property>
    </widget>
    <widget class="QPushButton" name="btnBack">
@@ -99,7 +99,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../utilities/buttons/button_back.png</normaloff>../utilities/buttons/button_back.png</iconset>
+      <normaloff>../data/images/buttons/button_back.png</normaloff>../data/images/buttons/button_back.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -122,7 +122,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../utilities/buttons/button_save.png</normaloff>../utilities/buttons/button_save.png</iconset>
+      <normaloff>../data/images/buttons/button_save.png</normaloff>../data/images/buttons/button_save.png</iconset>
     </property>
     <property name="iconSize">
      <size>

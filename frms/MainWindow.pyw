@@ -4,13 +4,10 @@ import sys
 from PyQt5.QtCore import QRect, QCoreApplication
 from PyQt5.QtWidgets import QMainWindow, QApplication
 from PyQt5.uic import loadUi
+from frms.SettingWindow import SettingWindow
 
 
 def start():
-    print("hola")
-
-
-def setting():
     print("hola")
 
 
@@ -25,13 +22,13 @@ def update():
 class MainWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
-        loadUi("MainWindow.ui", self)
+        loadUi("frms/MainWindow.ui", self)
         self.clicks = 0
         self.buttons()
 
     def buttons(self):
         self.btnStart.clicked.connect(self.click_counter)
-        self.btnSetting.clicked.connect(setting)
+        self.btnSetting.clicked.connect(self.setting)
         self.btnUpdate.clicked.connect(update)
         self.btnExit.clicked.connect(close)
 
@@ -43,6 +40,10 @@ class MainWindow(QMainWindow):
                                                               u"font-size:14pt; font-weight:600; color:#ffff7f;\">"
                                                               f"{self.clicks}</span></p></body></html>",
                                                               None))
+
+    def setting(self):
+        self.window = SettingWindow()
+        self.window.show()
 
 
 if __name__ == "__main__":
