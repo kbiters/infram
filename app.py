@@ -5,6 +5,7 @@ import pyautogui
 from src.json import config
 from src.operations.mouse import find_image_click
 from src.operations.windows import start_brave
+from src.service.auto_update import latest_version_check
 from src.service.constants import Config, Image
 from src.service.main_window import show_main_window
 from src.service.menu import show_menu
@@ -15,6 +16,8 @@ from src.service.utilities import check_data_created, check_finish_demo, check_c
 def main():
     Config.LANGUAGE = select_language()
     pyautogui.FAILSAFE = False
+
+    latest_version_check()
 
     check_finish_demo()
     check_data_created()

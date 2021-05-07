@@ -3,9 +3,9 @@
 # ------------------------------------------------
 
 
-PyAutoGUI
+pyautogui
 pyinstaller
-pynput
-PyUpdater[all]
 textblob
-opencv-python
+pillow
+ntplib
+requests

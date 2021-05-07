@@ -1,4 +1,5 @@
 class Config:
+    VERSION = 0.01
     LANGUAGE = None
     CLICKS = 0
     TIME_FINISH_DEMO = 1620615599
@@ -38,7 +39,7 @@ class Message:
     FINISH = "Finish after: "
     GET_TYPE_DB_USE = "Enter the configuration you want to use 1. DEFAULT | 2. EDITABLE: "
     GET_OPTION_MENU = "Enter the option you wish to perform: "
-    FINISH_DEMO = "InfraBot testing time is over, stay informed in our discord group: https://discord.gg/PSs4c4pW"
+    FINISH_DEMO = 'InfraBot testing time is over, stay informed in our discord group: https://discord.gg/PSs4c4pW'
     PRESS_KEY_EXIT = "Press key to exit..."
 
     SET_WIN_MIN = "Enter the MINIMUM number of tabs: "
@@ -46,6 +47,9 @@ class Message:
     SET_TIME_TO_REPEAT = "Enter the TIME(min.) the process is REPEATED: "
     SET_TIME_END = "Enter the TIME(hours.) at which the process ENDS: "
     SET_POWER_OFF = "Enter whether or not to turn off the equipment after the processing time has elapsed "
+
+    NEW_VERSION_DETECTED = "A new version of Infram Bot will be downloaded next... "
+    # AUTO_UPDATE_FINISH = "Update completed! restart..."
 
 
 class Map:
