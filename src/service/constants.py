@@ -2,7 +2,7 @@ class Config:
     VERSION = 0.01
     LANGUAGE = None
     CLICKS = 0
-    TIME_FINISH_DEMO = 1620615599
+    TIME_FINISH_DEMO = 1621825199
     ACTIVE_BROWSER = False
     TIME_NOW = None
 

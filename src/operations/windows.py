@@ -23,10 +23,6 @@ def get_open_wins():
 
 
 def start_brave():
-    """
-    Function to open the Brave browser, first start an alert that the browser will run,
-    and then we call the function to start the opening of tabs.
-    """
     try:
         start_alert()
         if not Config.ACTIVE_BROWSER:
@@ -40,11 +36,6 @@ def start_brave():
 
 
 def open_windows():
-    """
-    Function to open all tabs, executing the 'key' function and passing it as parameters
-    the constants 'Key.CTRL' and 'Key.T' then wait a while and call the function 'select_page',
-    once 'i' equals the constant passed by parameter, the 'close_window' function is executed.
-    """
     try:
         i = 1
         openWindows = get_open_wins()
@@ -64,11 +55,6 @@ def open_windows():
 
 
 def close_windows(openWindows):
-    """
-    Function to close all tabs + 1, this '+1' refers to also closing the tab that initially
-    opened the 'start_brave' function, waiting for a random time between tab and tab closure,
-    to close we use the key combination 'Key.CTRL' + 'Key.W'.
-    """
     try:
         i = 1
 
