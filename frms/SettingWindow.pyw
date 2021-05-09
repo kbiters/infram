@@ -15,7 +15,7 @@ def back():
 class SettingWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
-        loadUi("frms/SettingWindow.ui", self)
+        loadUi("SettingWindow.ui", self)
         self.buttons()
 
     def buttons(self):

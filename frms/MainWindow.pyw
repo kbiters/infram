@@ -4,7 +4,7 @@ import sys
 from PyQt5.QtCore import QRect, QCoreApplication
 from PyQt5.QtWidgets import QMainWindow, QApplication
 from PyQt5.uic import loadUi
-from frms.SettingWindow import SettingWindow
+from SettingWindow import SettingWindow
 
 
 def start():
@@ -22,7 +22,7 @@ def update():
 class MainWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
-        loadUi("frms/MainWindow.ui", self)
+        loadUi("MainWindow.ui", self)
         self.clicks = 0
         self.buttons()
 

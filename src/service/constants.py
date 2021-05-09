@@ -17,6 +17,8 @@ class Data:
 class Image:
     NOTIFICATION_PATH = ("data/images/notification.png",)
 
+    TEST_PATH = "data/images/test.png"
+
     NEW_TAB_PATH = ("data/images/more_black.png", "data/images/more_white.png")
 
 
@@ -49,7 +51,6 @@ class Message:
     SET_POWER_OFF = "Enter whether or not to turn off the equipment after the processing time has elapsed "
 
     NEW_VERSION_DETECTED = "A new version of Infram Bot will be downloaded next... "
-    # AUTO_UPDATE_FINISH = "Update completed! restart..."
 
 
 class Map:
@@ -74,6 +75,7 @@ class Key:
     CTRL = "Ctrl"
     W = "w"
     T = "t"
+    K = "k"
     ENTER = "Enter"
 
 
@@ -88,13 +90,10 @@ class Brave:
     STARTUP_ALERT = "Infram will start in 10 sec, press OK or close this alert to start now ..."
     TITLE_ALERT = "Infram - Start Alert"
 
-    OPEN_LINKS = [
-        "cmd /c start brave https://www.youtube.com/watch?v=CWWfcB_Xen4 --new-window",
-        "cmd /c start brave https://www.youtube.com/watch?v=NAOrYQOMsmk --new-window",
-        "cmd /c start brave https://www.youtube.com/watch?v=eJDwfPfL3cQ --new-window",
-        "cmd /c start brave https://www.youtube.com/watch?v=xq24HgdNBDo --new-window",
-        "cmd /c start brave https://www.youtube.com/watch?v=DpQHHIX3ZNY --new-window",
-        "cmd /c start brave https://www.youtube.com/watch?v=GF5QEaTkIXQ --new-window"
+    OPEN_BROWSER = "cmd /c start brave --new-window "
+    OPEN_LIST_VIDEO = [
+        "https://youtu.be/CWWfcB_Xen4?list=PLOesD1l14nAueNP3_kjpykWA-mrI5vOVK",
+        "https://youtu.be/lVnNByQ6EFE?list=PLOesD1l14nAuVWtLqfmhLuR7TxyrIg9Je"
     ]
 
 

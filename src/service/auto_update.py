@@ -1,12 +1,13 @@
-import io
+import subprocess
+import sys
+from time import sleep
+
 import requests
-import zipfile
+
 from src.service.constants import Config, Message
 from src.service.translator import translate
-from time import sleep
-import subprocess
 
-url_check_version = "https://raw.githubusercontent.com/gianca1994/test/main/README.md"
+url_check_version = "https://raw.githubusercontent.com/inframbot/inframbot-autodownloader/main/README.md"
 
 
 def latest_version_check():

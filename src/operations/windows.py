@@ -1,8 +1,9 @@
-import random
 import subprocess
 from datetime import datetime, timedelta
-from random import randint, uniform
+from random import randint, uniform, randrange, choice
 from time import sleep
+
+import pyautogui
 
 from src.json import config
 from src.operations.functions import key
@@ -26,10 +27,13 @@ def start_brave():
     try:
         start_alert()
         if not Config.ACTIVE_BROWSER:
-            subprocess.Popen(random.choice(Brave.OPEN_LINKS))
+            subprocess.Popen(Brave.OPEN_BROWSER + choice(Brave.OPEN_LIST_VIDEO))
             Config.ACTIVE_BROWSER = True
             Config.TIME_NOW = datetime.now() + timedelta(minutes=30)
         sleep(wait_finish_opening)
+        if pyautogui.locateOnScreen(Image.TEST_PATH) is not None:
+            key(second_key=Key.K)
+        sleep(1)
         open_windows()
     except OSError as error:
         print(translate(error))
@@ -48,6 +52,7 @@ def open_windows():
                 find_image_click(Image.NEW_TAB_PATH)
             sleep(wait_to_type)
             select_page()
+            scroll_web()
             i += 1
         close_windows(openWindows)
     except OSError as error:
@@ -57,7 +62,6 @@ def open_windows():
 def close_windows(openWindows):
     try:
         i = 1
-
         if datetime.now() >= Config.TIME_NOW:
             closeWindows = openWindows + 1
             Config.ACTIVE_BROWSER = False
@@ -69,5 +73,20 @@ def close_windows(openWindows):
             key(Key.CTRL, Key.W)
             i += 1
         sleep(2)
+    except OSError as error:
+        print(translate(error))
+
+
+def scroll_web():
+    try:
+        sleep(2)
+        pyautogui.moveTo(randint(150, 750), randint(150, 500), uniform(0.1, 0.3), pyautogui.easeInOutQuad)
+        for i in range(2, 5):
+            sleep(0.01)
+            pyautogui.scroll(randrange(-1200, -500))
+
+        sleep(0.75)
+        if randint(1, 100) >= 60:
+            pyautogui.scroll(randrange(500, 1000))
     except OSError as error:
         print(translate(error))
