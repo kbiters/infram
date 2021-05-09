@@ -17,3 +17,7 @@ RENAME dist Infram-KBiter
 DEL InframAutoUpdate.spec
 rmdir /s /q build __pycache__
 
+xcopy data Infram-KBiter /e
+
+exit
+
