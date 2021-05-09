@@ -1,0 +1,9 @@
+# ------------------------------------------------
+# Run `py -m pip install -r req-infram-updater.txt`
+# ------------------------------------------------
+
+
+requests
+zipfile
+progress
+pyinstaller

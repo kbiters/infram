@@ -1,0 +1,12 @@
+# ------------------------------------------------
+# Run `py -m pip install -r req-infram.txt`
+# ------------------------------------------------
+
+
+pyautogui
+pyinstaller
+textblob
+pillow
+ntplib
+requests
+opencv-python

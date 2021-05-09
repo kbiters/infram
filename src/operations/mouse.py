@@ -44,3 +44,14 @@ def save_clicks(count_clicks):
             file.close()
     except OSError as error:
         print(translate(error))
+
+
+def make_clicks_default():
+    try:
+        with open(Data.DATA_PATH + Data.CLICKS, 'w') as f:
+            data = {'CLICKS': {
+                'Cantidad': "0"
+            }}
+            json.dump(data, f, indent=4)
+    except OSError as error:
+        print(translate(error))

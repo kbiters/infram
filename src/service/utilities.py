@@ -7,6 +7,7 @@ import ntplib
 from src.json import config
 from src.json.credentials import make_credentials_default
 from src.operations.functions import check_stop, command
+from src.operations.mouse import make_clicks_default
 from src.service.constants import Data, Config, Message, Credentials, Command
 from src.service.credentials import check_session
 from src.service.translator import translate
@@ -28,6 +29,9 @@ def check_files_created():
 
     if not os.path.isfile(Data.DATA_PATH + Data.CREDENTIALS):
         make_credentials_default()
+
+    if not os.path.isfile(Data.DATA_PATH + Data.CLICKS):
+        make_clicks_default()
 
 
 def check_finish_demo():

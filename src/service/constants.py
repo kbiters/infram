@@ -17,7 +17,7 @@ class Data:
 class Image:
     NOTIFICATION_PATH = ("data/images/notification.png",)
 
-    TEST_PATH = "data/images/test.png"
+    TEST_PATH = "data/images/check.png"
 
     NEW_TAB_PATH = ("data/images/more_black.png", "data/images/more_white.png")
 

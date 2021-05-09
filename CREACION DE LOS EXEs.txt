@@ -1,0 +1,19 @@
+py -m venv env
+env\Scripts\activate.bat
+py -m pip install -r req-infram.txt
+PyInstaller app.py -F -n Infram --clean --icon=./icon.ico
+env\Scripts\deactivate.bat
+rmdir /s /q env
+
+py -m venv env
+env\Scripts\activate.bat
+py -m pip install -r req-infram-updater.txt
+PyInstaller Updater.py -F -n InframAutoUpdate --clean --icon=./icon.ico
+env\Scripts\deactivate.bat
+rmdir /s /q env
+
+RENAME dist Infram-KBiter
+DEL Infram.spec
+DEL InframAutoUpdate.spec
+rmdir /s /q build __pycache__
+
