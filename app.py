@@ -14,10 +14,10 @@ from src.service.utilities import check_data_created, check_finish_demo, check_c
 
 
 def main():
+    latest_version_check()
+
     Config.LANGUAGE = select_language()
     pyautogui.FAILSAFE = False
-
-    latest_version_check()
 
     check_finish_demo()
     check_data_created()

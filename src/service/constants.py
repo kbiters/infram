@@ -50,8 +50,6 @@ class Message:
     SET_TIME_END = "Enter the TIME(hours.) at which the process ENDS: "
     SET_POWER_OFF = "Enter whether or not to turn off the equipment after the processing time has elapsed "
 
-    NEW_VERSION_DETECTED = "A new version of Infram Bot will be downloaded next... "
-
 
 class Map:
     MENU_MAP = {
@@ -62,7 +60,8 @@ class Map:
     }
 
     LANGUAGE_MAP = {1: None, 2: "es"}
-    ENCRYPTOR_MAP = {0: 'l', 1: 'e', 2: 'g', 3: 'u', 4: 'm', 5: 'i', 6: 'n', 7: 'o', 8: 's', 9: 'a'}
+    ENCRYPTOR_MAP = {0: 'l', 1: 'e', 2: 'g', 3: 'u',
+                     4: 'm', 5: 'i', 6: 'n', 7: 'o', 8: 's', 9: 'a'}
 
 
 class Command:
