@@ -31,7 +31,7 @@ def start_brave():
             Config.ACTIVE_BROWSER = True
             Config.TIME_NOW = datetime.now() + timedelta(minutes=30)
         sleep(wait_finish_opening)
-        if pyautogui.locateOnScreen(Image.TEST_PATH) is not None:
+        if pyautogui.locateOnScreen(Image.PLAY_LIST) is not None:
             key(second_key=Key.K)
         sleep(1)
         open_windows()

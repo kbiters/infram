@@ -1,5 +1,5 @@
 class Config:
-    VERSION = 0.01
+    VERSION = 0.02
     LANGUAGE = None
     CLICKS = 0
     TIME_FINISH_DEMO = 1621825199
@@ -17,7 +17,7 @@ class Data:
 class Image:
     NOTIFICATION_PATH = ("data/images/notification.png",)
 
-    TEST_PATH = "data/images/check.png"
+    PLAY_LIST = "data/images/check.png"
 
     NEW_TAB_PATH = ("data/images/more_black.png", "data/images/more_white.png")
 

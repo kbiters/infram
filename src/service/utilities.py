@@ -6,9 +6,9 @@ import ntplib
 
 from src.json import config
 from src.json.credentials import make_credentials_default
-from src.operations.functions import check_stop, command
+from src.operations.functions import check_stop, command, key
 from src.operations.mouse import make_clicks_default
-from src.service.constants import Data, Config, Message, Credentials, Command
+from src.service.constants import Data, Message, Credentials, Command, Config, Key
 from src.service.credentials import check_session
 from src.service.translator import translate
 
@@ -49,10 +49,14 @@ def check_credentials():
 
 def check_finish_bot(initial_time):
     if check_stop(initial_time):
+
+        if Config.ACTIVE_BROWSER:
+            key(Key.CTRL, Key.W)
+
         if config.power_off:
             command(Command.POWER_OFF)
 
-        print(f"{translate(Message.FINISH)} {int(time() - initial_time)} {translate('seconds.')}")
+        print(f"\n{translate(Message.FINISH)} {(int(time() - initial_time)) / 60} {translate('minutes.')}\n")
         press_key_exit()
 
 

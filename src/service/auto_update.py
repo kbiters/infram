@@ -1,11 +1,9 @@
 import subprocess
 import sys
-from time import sleep
 
 import requests
 
-from src.service.constants import Config, Message
-from src.service.translator import translate
+from src.service.constants import Config
 
 url_check_version = "https://raw.githubusercontent.com/inframbot/inframbot-autodownloader/main/README.md"
 

@@ -5,17 +5,17 @@ import zipfile
 from time import sleep
 
 import requests
-from progress.bar import Bar
+from progress.bar import ShadyBar
 
 
 def main():
     url_patch = "https://raw.githubusercontent.com/inframbot/inframbot-autodownloader/main/Infram.zip"
-    print("\nDownloading the patch...\n")
-    bar = Bar('b/s', max=100)
+    print("Downloading update...\n")
+    bar = ShadyBar('s', suffix='%(percent).0f%% - %(eta)ds', max=100)
 
     def progress(percent_max):
         for num in range(percent_max):
-            sleep(0.06)
+            sleep(0.01)
             bar.next()
 
     progress(10)

@@ -10,7 +10,7 @@ from src.service.constants import Config, Image
 from src.service.main_window import show_main_window
 from src.service.menu import show_menu
 from src.service.translator import select_language
-from src.service.utilities import check_data_created, check_finish_demo, check_credentials, check_finish_bot
+from src.service.utilities import check_data_created, check_credentials, check_finish_bot, check_finish_demo
 
 
 def main():
@@ -30,7 +30,6 @@ def main():
     initial_time = time()
 
     while True:
-        check_finish_demo()
         check_finish_bot(initial_time)
 
         start_brave()
@@ -38,6 +37,7 @@ def main():
         i, j, waiting = 0, time_to_repeat, True
         while waiting:
             find_image_click(Image.NOTIFICATION_PATH, -100, 100, -8, 8, True)
+
             sleep(10)
             i += 10
             if i >= 30:
