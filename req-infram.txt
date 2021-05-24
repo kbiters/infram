@@ -2,6 +2,5 @@ pyautogui
 pyinstaller
 textblob
 pillow
-ntplib
 requests
 opencv-python

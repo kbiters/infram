@@ -2,8 +2,6 @@ import os.path
 from msvcrt import getch
 from time import time
 
-import ntplib
-
 from src.json import config
 from src.json.credentials import make_credentials_default
 from src.operations.functions import check_stop, command, key
@@ -32,13 +30,6 @@ def check_files_created():
 
     if not os.path.isfile(Data.DATA_PATH + Data.CLICKS):
         make_clicks_default()
-
-
-def check_finish_demo():
-    response_time = ntplib.NTPClient().request('ar.pool.ntp.org', version=3)
-    if response_time.tx_time >= Config.TIME_FINISH_DEMO:
-        print(translate(Message.FINISH_DEMO))
-        press_key_exit()
 
 
 def check_credentials():

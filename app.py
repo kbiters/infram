@@ -10,7 +10,7 @@ from src.service.constants import Config, Image
 from src.service.main_window import show_main_window
 from src.service.menu import show_menu
 from src.service.translator import select_language
-from src.service.utilities import check_data_created, check_credentials, check_finish_bot, check_finish_demo
+from src.service.utilities import check_data_created, check_credentials, check_finish_bot
 
 
 def main():
@@ -19,7 +19,6 @@ def main():
     Config.LANGUAGE = select_language()
     pyautogui.FAILSAFE = False
 
-    check_finish_demo()
     check_data_created()
     check_credentials()
 

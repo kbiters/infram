@@ -2,9 +2,9 @@ class Config:
     VERSION = 0.02
     LANGUAGE = None
     CLICKS = 0
-    TIME_FINISH_DEMO = 1621825199
     ACTIVE_BROWSER = False
     TIME_NOW = None
+    URL_GETS = 'https://infram-api.herokuapp.com/'
 
 
 class Data:
@@ -41,7 +41,6 @@ class Message:
     FINISH = "Finish after: "
     GET_TYPE_DB_USE = "Enter the configuration you want to use 1. DEFAULT | 2. EDITABLE: "
     GET_OPTION_MENU = "Enter the option you wish to perform: "
-    FINISH_DEMO = 'InfraBot testing time is over, stay informed in our discord group: https://discord.gg/PSs4c4pW'
     PRESS_KEY_EXIT = "Press key to exit..."
 
     SET_WIN_MIN = "Enter the MINIMUM number of tabs: "
@@ -90,57 +89,6 @@ class Brave:
     TITLE_ALERT = "Infram - Start Alert"
 
     OPEN_BROWSER = "cmd /c start brave --new-window "
-    OPEN_LIST_VIDEO = [
-        "https://youtu.be/CWWfcB_Xen4?list=PLOesD1l14nAueNP3_kjpykWA-mrI5vOVK",
-        "https://youtu.be/lVnNByQ6EFE?list=PLOesD1l14nAuVWtLqfmhLuR7TxyrIg9Je"
-    ]
-
-
-class Page:
-    PAGES_LIST = [
-        "jabon", "cepillo", "tenedor", "cuchillo", "peine", "paragua", "almohada", "botiquin",
-        "cama", "clip", "flor", "shampoo", "pila", "bateria", "pasta", "billete", "moneda",
-        "capsula", "cafe", "te", "chicle", "botella", "cuchara", "aceite", "agua", "fuego",
-        "tierra", "aire", "ozono", "rayo", "tierra", "sol", "luna", "marte", "planeta",
-        "mercurio", "jupiter", "saturno", "urano", "neptuno", "pluton", "galaxia", "via lactea",
-        "sistema solar", "estrella", "satelite", "lunes", "martes", "miercoles", "jueves",
-        "viernes", "sabado", "domingo", "luz", "film", "tazas", "jarra", "vaso", "vela",
-        "petroleo", "gas", "nafta", "gas oil", "corriente", "electricidad", "intensidad",
-        "fuerza", "modulo", "ampere", "voltaje", "tension", "campo electrico", "campo magnetico",
-        "magnetismo", "hidrogeno", "helio", "litio", "berilio", "boro", "carbono", "nitrogeno",
-        "oxigeno", "fluor", "neon", "sodio", "magnesio", "aluminio", "silicio", "fosforo",
-        "azufre", "cloro", "argon", "potasio", "calcio", "escandio", "titanio", "vanadio",
-        "cromo", "manganeso", "hierro", "cobalto", "niquel", "cobre", "zinc", "galio", "germanio",
-        "arsenico", "selenio", "bromo", "kripton", "rubidio", "estroncio", "itrio", "circonio",
-        "niobio", "molibdeno", "tecnecio", "rutenio", "rodio", "paladio", "plata", "cadmio",
-        "indio", "estaño", "antimonio", "telurico", "yodo", "xenon", "cesio", "bario", "hafnio",
-        "tantalo", "wolframio", "renio", "osmio", "iridio", "platino", "oro", "mercurio", "talio",
-        "plomo", "bismuto", "polonio", "astato", "radon", "francio", "radio", "rutherfordio",
-        "dubnio", "seaborgio", "bohrio", "hasio", "meitnerio", "darmastatio", "roentgenio",
-        "copernicio", "nihonio", "flerovio", "moscovio", "livermorio", "teneso", "oganeson",
-        "latano", "cerio", "praseodimio", "neodimio", "prometio", "samarino", "europio",
-        "gadolinio", "terbio", "disprosio", "holmio", "erbio", "tulio", "iterbio", "lutecio",
-        "actinio", "torio", "proactinio", "uranio", "neptunio", "plutonio", "americio", "curio",
-        "berkelio", "californio", "einstenio", "fermio", "mendelevio", "nobelio", "lawrencio",
-        "cable", "aislante", "conductor", "zapatilla", "zapatos", "borcegos", "botas", "panchas",
-        "mocasines", "sandalias", "ojotas", "zuecos", "campera", "remera", "buzo", "sweater",
-        "cardigan", "jean", "chomba", "camisa", "pantalon", "jogging", "bermuda", "short", "bluza",
-        "camiseta", "pelota", "canasta", "silbato", "bicicleta", "meta", "raqueta", "red", "banca",
-        "paragua", "porteria", "cancha", "tablero", "estadio", "vestuario", "arbitro", "jugador",
-        "uva", "lima", "limon", "cereza", "arandano", "banana", "manzana", "sandia", "melocoton",
-        "piña", "fresa", "naranja", "coco", "pera", "albaricoque", "aguacate", "zarzamora", "pomelo",
-        "kiwi", "mango", "ciruela", "frambuesa", "granada", "higo", "maracuya", "mandarina", "zandia",
-        "mochila", "libro", "librero", "recreo", "cafeteria", "calculadora", "calendario", "tiza",
-        "pizzarron", "clase", "aula", "crayon", "escritorio", "diploma", "examen", "pegamento",
-        "calificacion", "gimnasio", "perforadora", "tarea", "laboratorio", "biblioteca", "mapa",
-        "boligrafo", "lapiz", "lapicera", "sacapuntas", "cartel", "director", "profesor", "prueba",
-        "regla", "beca", "tijeras", "semestre", "engrapadora", "contabilidad", "arqueologia",
-        "arquitectura", "arte", "astronomia", "biologia", "quimica", "economia", "ingenieria",
-        "geografia", "geologia", "historia", "literatura", "matematica", "lengua", "musica",
-        "filosofia", "fisica", "psicologia", "sociologia", "teologia", "ingles", "chino", "español",
-        "frances", "arabe", "ruso", "bengali", "portugues", "indonesio", "aleman", "japones", "turco",
-        "italiano"
-    ]
 
 
 class Credentials:

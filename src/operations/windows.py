@@ -9,7 +9,7 @@ from src.json import config
 from src.operations.functions import key
 from src.operations.functions import start_alert
 from src.operations.mouse import find_image_click
-from src.operations.page import select_page
+from src.operations.page import Pages
 from src.service.constants import Brave, Key, Image, Config
 from src.service.translator import translate
 
@@ -18,16 +18,21 @@ wait_to_start = uniform(3.4, 6.3)
 wait_to_type = uniform(3.1, 5.4)
 wait_to_close = uniform(3.3, 4.2)
 
+pages = Pages()
+
 
 def get_open_wins():
-    return randint(config.win_min, config.win_max)
+    value_pages = randint(config.win_min, config.win_max)
+    pages.set_page_list(str(value_pages))
+    return value_pages
 
 
 def start_brave():
     try:
         start_alert()
         if not Config.ACTIVE_BROWSER:
-            subprocess.Popen(Brave.OPEN_BROWSER + choice(Brave.OPEN_LIST_VIDEO))
+            pages.set_video_list()
+            subprocess.Popen(Brave.OPEN_BROWSER + choice(pages.get_video_list()))
             Config.ACTIVE_BROWSER = True
             Config.TIME_NOW = datetime.now() + timedelta(minutes=30)
         sleep(wait_finish_opening)
@@ -51,7 +56,7 @@ def open_windows():
                 sleep(uniform(0.7, 1.3))
                 find_image_click(Image.NEW_TAB_PATH)
             sleep(wait_to_type)
-            select_page()
+            pages.select_page()
             scroll_web()
             i += 1
         close_windows(openWindows)
