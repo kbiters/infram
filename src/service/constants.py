@@ -10,7 +10,7 @@ class Config:
 class Data:
     CONFIGS = "config.json"
     CREDENTIALS = "credentials.json"
-    CLICKS = "clicked_notifications.json"
+    CLICKS = "mouse.json"
     DATA_PATH = "data/"
 
 
@@ -47,7 +47,12 @@ class Message:
     SET_WIN_MAX = "Enter the MAXIMUM number of tabs: "
     SET_TIME_TO_REPEAT = "Enter the TIME(min.) the process is REPEATED: "
     SET_TIME_END = "Enter the TIME(hours.) at which the process ENDS: "
-    SET_POWER_OFF = "Enter whether or not to turn off the equipment after the processing time has elapsed "
+    SET_POWER_OFF = "Enter whether or not to turn off the equipment after the " \
+                    "processing time has elapsed "
+
+    AD_DETECTED = "Ad detected and clicked!..."
+    AD_CLICKED_IN_SESSION = "Ads clicked in this session: "
+    AD_CLICKED_TOTAL = "Total number of clicked ads: "
 
 
 class Map:
@@ -60,7 +65,8 @@ class Map:
 
     LANGUAGE_MAP = {1: None, 2: "es"}
     ENCRYPTOR_MAP = {0: 'l', 1: 'e', 2: 'g', 3: 'u',
-                     4: 'm', 5: 'i', 6: 'n', 7: 'o', 8: 's', 9: 'a'}
+                     4: 'm', 5: 'i', 6: 'n', 7: 'o',
+                     8: 's', 9: 'a'}
 
 
 class Command:
