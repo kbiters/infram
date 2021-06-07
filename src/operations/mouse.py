@@ -40,9 +40,10 @@ def save_clicks(count_clicks):
         with open(Data.DATA_PATH + Data.CLICKS, 'r+') as file:
             data = json.load(file)
             total_amount = data['Clicks']['Total_amount']
+            new_total = int(total_amount) + int(count_clicks)
             data['Clicks'] = {
                 'Partial_amount': count_clicks,
-                'Total_amount': total_amount + count_clicks
+                'Total_amount': new_total
             }
             file.seek(0)
             file.write(json.dumps(data, indent=4))
