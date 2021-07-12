@@ -1,0 +1,6 @@
+pyautogui
+pyinstaller
+textblob
+pillow
+requests
+opencv-python
