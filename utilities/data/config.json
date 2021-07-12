@@ -1,7 +1,0 @@
-{
-    "WIN_MIN": 6,
-    "WIN_MAX": 13,
-    "TIME_TO_REPEAT": 450,
-    "TIME_END": 28800,
-    "POWER_OFF": false
-}
