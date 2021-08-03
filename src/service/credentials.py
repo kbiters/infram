@@ -4,7 +4,7 @@ from src.json.credentials import save_credentials, get_credentials
 from src.service.constants import Credentials, Map
 from src.service.translator import translate
 
-# Variables que nunca deben ser revelados.
+
 VAR_Y = "mimnaugig.iiasa"
 EXPONENT_1 = "m"
 EXPONENT_2 = "u"
@@ -80,18 +80,3 @@ def set_user_second_hash():
         return input(translate(Credentials.SET_SECOND))
     except OSError as error:
         print(translate(error))
-
-# SESSION_KEY_ENCRIPTADA = mseassunioeasomi
-# SESSION_KEY = 4819883657198745 <--- la funcion math_operation() devuelve exactamente ese numero
-
-# VAX_X_ENCRIPTADA = namgiuee.olmo
-# VAR_X = 69425311.7047
-
-# VAX_Y_ENCRIPTADA = mimnaugig.iiasa
-# VAR_Y = 454693252.55989
-
-# EXPONENT_1 = m
-# EXPONENT_1 = 4
-
-# EXPONENT_2 = u
-# EXPONENT_2 = 3
