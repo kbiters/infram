@@ -2,6 +2,8 @@
 
 > For the moment Infram-Bot only works in window...
 
+#### If you have any questions you can join the discord channel and we will be happy to answer them: https://discord.gg/xKZyQ9rNNg
+
 1. Download/Clone the repository: ```git clone https://github.com/kbiters/infram```.
 
 3. Open a console or terminal in the bot folder.
@@ -14,5 +16,5 @@
 
 7. Once finished downloading the necessary libraries, run the app.py: ```py app.py``` or ```python app.py``` and that's it! you will have the bot running!
 
-> In case you want to create an executable file, open the cmd in the "Infram" directory, copy the content of the file "CREATION OF EXEs.txt" and paste it in the cmd you previously executed.
+> In case you want to create an executable file, open the cmd in the "Infram" directory, copy the content of the file "CREACION DE LOS EXEs.txt" and paste it in the cmd you previously executed.
 
