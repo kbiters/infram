@@ -1,8 +1,10 @@
-# Basic guide to install and use
+# Infram
 
-> For the moment Infram-Bot only works in window...
+## Basic guide to install and use
 
-#### If you have any questions you can join the discord channel and we will be happy to answer them: https://discord.gg/xKZyQ9rNNg
+> For the moment Infram-Bot only works on Windows...
+
+#### If you have any questions you can join the discord channel and we will be happy to answer them: [Discord](https://discord.gg/xKZyQ9rNNg)
 
 1. Download/Clone the repository: ```git clone https://github.com/kbiters/infram```.
 
@@ -10,7 +12,7 @@
 
 4. Create a virtual environment: ```py -m venv env``` or ```python -m venv env```.
  
-5. Activate the virtual environment: ```envScriptsactivate.bat```.
+5. Activate the virtual environment: ```env/Scripts/activate.bat```.
 
 6. Install the necessary requirements: ```pip install -r req-infram.txt```.
 
