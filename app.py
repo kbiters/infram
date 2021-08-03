@@ -14,7 +14,7 @@ from src.service.utilities import check_data_created, check_credentials, check_f
 
 
 def main():
-    latest_version_check()
+    # latest_version_check() <-- Para no utilizar el auto-update
 
     Config.LANGUAGE = select_language()
     pyautogui.FAILSAFE = False
